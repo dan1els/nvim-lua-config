@@ -19,3 +19,7 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+vim.cmd [[colorscheme moonfly]]
+
+
