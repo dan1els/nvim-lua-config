@@ -16,7 +16,8 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     }
   }
-  use 'bluz71/vim-moonfly-colors'
+
+  use 'tanvirtin/monokai.nvim'
 
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()

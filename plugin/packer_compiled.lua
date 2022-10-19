@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["monokai.nvim"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/monokai.nvim",
+    url = "https://github.com/tanvirtin/monokai.nvim"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -94,11 +99,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["vim-moonfly-colors"] = {
-    loaded = true,
-    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
-    url = "https://github.com/bluz71/vim-moonfly-colors"
   }
 }
 
