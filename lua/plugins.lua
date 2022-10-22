@@ -17,11 +17,16 @@ return require('packer').startup(function(use)
     }
   }
 
-  use 'tanvirtin/monokai.nvim'
-
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+  use 'tanvirtin/monokai.nvim' -- theme
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()  -- embedded terminal
     require("toggleterm").setup()
   end}
+
+
+  use { 
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}   -- tabs
+  }
   
 end)
 
