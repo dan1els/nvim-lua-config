@@ -30,5 +30,9 @@ return require('packer').startup(function(use)
 
   use {'neoclide/coc.nvim', branch = 'release'}   -- autocompletion
   
+  use {
+    'nmac427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end, -- indents
+  }
 end)
 
