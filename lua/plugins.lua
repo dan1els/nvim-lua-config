@@ -34,5 +34,12 @@ return require('packer').startup(function(use)
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end, -- indents
   }
+
+  use {                        -- git support
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 end)
 

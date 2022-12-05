@@ -60,3 +60,6 @@ require('guess-indent').setup {
     "prompt",
   },
 }
+
+-- git
+require('vgit').setup()
