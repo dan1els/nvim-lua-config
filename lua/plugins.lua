@@ -52,5 +52,7 @@ return require('packer').startup(function(use)
     -- optional for icon support
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
+
+  use 'preservim/tagbar' -- for fast traveling in class
 end)
 

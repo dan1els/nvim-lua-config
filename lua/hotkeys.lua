@@ -8,3 +8,9 @@ map('n', '<Leader>t', ':NvimTreeFocus<CR>', opts)
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<S-W>', '<Cmd>BufferClose<CR>', opts)
+
+
+
+map('n', '<S-F>',  "<cmd>lua require('fzf-lua').lines()<CR>",  opts)
+
+map('n', '<S-M>', '<Cmd>TagbarToggle<CR>', opts)

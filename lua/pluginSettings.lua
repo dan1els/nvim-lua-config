@@ -85,6 +85,9 @@ require('nvim-treesitter.configs').setup {
 require('lualine').setup()
 
 
+-- search
+
+
 
 
 -- tests
