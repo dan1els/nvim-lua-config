@@ -45,5 +45,12 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+
+  use 'vim-test/vim-test'
+
+  use { 'ibhagwan/fzf-lua',
+    -- optional for icon support
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
 end)
 

@@ -81,4 +81,10 @@ require('nvim-treesitter.configs').setup {
   }
 }
 
+-- statusbar
 require('lualine').setup()
+
+
+
+
+-- tests
