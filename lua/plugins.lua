@@ -27,8 +27,6 @@ return require('packer').startup(function(use)
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}   -- tabs
   }
-
-  use {'neoclide/coc.nvim', branch = 'release'}   -- autocompletion
   
   use {
     'nmac427/guess-indent.nvim',
@@ -48,11 +46,11 @@ return require('packer').startup(function(use)
 
   use 'vim-test/vim-test'
 
-  use { 'ibhagwan/fzf-lua',
-    -- optional for icon support
-    requires = { 'nvim-tree/nvim-web-devicons' }
-  }
-
   use 'preservim/tagbar' -- for fast traveling in class
+
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 end)
 

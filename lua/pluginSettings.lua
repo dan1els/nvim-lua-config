@@ -86,6 +86,8 @@ require('lualine').setup()
 
 
 -- search
+require('telescope').setup()
+
 
 
 
