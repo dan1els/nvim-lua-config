@@ -21,3 +21,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- Toggleterm
 map('n', '<leader>tt', '<Cmd>ToggleTerm<CR>', opts)
+map('n', '<leader>tT', '<Cmd>ToggleTerm direction=float<CR>', opts)
+
+-- coc
+map('n', 'gi', '<Plug>(coc-implementation)', opts)
+map('n', 'gd', '<Plug>(coc-definition)', opts)
+map('n', 'gy', '<Plug>(coc-type-definition)', opts)
+
