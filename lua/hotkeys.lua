@@ -2,6 +2,8 @@ local map = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}
 
 map('n', '<Leader>t', ':NvimTreeFocus<CR>', opts)
+map('n', '<Leader>tf', ':NvimTreeFindFile<CR>', opts)
+map('n', '<Leader>tF', ':NvimTreeFindFileToggle<CR>', opts)
 
 
 -- Tabs
