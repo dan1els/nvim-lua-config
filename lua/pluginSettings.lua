@@ -20,7 +20,8 @@ require("nvim-tree").setup({
   },
 })
 
-vim.cmd([[colorscheme darcula]])
+vim.cmd([[colorscheme darcula-solid]])
+vim.cmd 'set termguicolors'
 
 -- indents
 require('guess-indent').setup {
