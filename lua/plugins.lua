@@ -17,7 +17,9 @@ return require('packer').startup(function(use)
     }
   }
 
-  use 'tanvirtin/monokai.nvim' -- theme
+  -- use 'tanvirtin/monokai.nvim' -- theme monokai
+  use 'doums/darcula' -- jetbrains like theme
+
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()  -- embedded terminal
     require("toggleterm").setup()
   end}
