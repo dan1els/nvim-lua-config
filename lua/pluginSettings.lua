@@ -20,9 +20,6 @@ require("nvim-tree").setup({
   },
 })
 
-vim.cmd([[colorscheme darcula-solid]])
-vim.cmd 'set termguicolors'
-
 -- indents
 require('guess-indent').setup {
   auto_cmd = true,  -- Set to false to disable automatic execution
@@ -54,7 +51,7 @@ require('nvim-treesitter.configs').setup {
     -- `false` will disable the whole extension
     enable = true,
 
-   additional_vim_regex_highlighting = false
+   additional_vim_regex_highlighting = true
   }
 }
 

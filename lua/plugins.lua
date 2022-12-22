@@ -42,6 +42,9 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+  use 'nvim-treesitter/nvim-treesitter-context'
+  use {'nvim-treesitter/playground'}
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -57,5 +60,7 @@ return require('packer').startup(function(use)
   }
  
   use {'neoclide/coc.nvim', branch = 'release'}   -- autocompletion
+
+
 end)
 

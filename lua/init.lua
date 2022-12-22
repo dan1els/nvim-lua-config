@@ -1,6 +1,7 @@
 require('plugins')
 require('pluginSettings')
 require('hotkeys')
+require('colorScheme')
 
 -- auto changedir 
 -- vim.opt.autochdir = true

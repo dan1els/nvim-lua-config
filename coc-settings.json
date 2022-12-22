@@ -1,16 +1,28 @@
 {
 	"java.import.gradle.enabled": true,
+	"java.import.gradle.wrapper.enabled": false,
+	"java.autobuild.enabled": true,
+	"java.trace.server": "verbose",
 	"java.jdt.ls.vmargs": "-javaagent:/Users/evgenii/.m2/repository/org/projectlombok/lombok-1.18.24.jar",
 	"java.contentProvider.preferred": "fernflower",
 	"java.configuration.runtimes": [
         {
+  		"name": "JavaSE-11",
+  		"path": "/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home/",
+  		"default": "true"
+ 	},
+	{
   		"name": "JavaSE-15",
-  		"path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home/",
+  		"path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home/"
+ 	},
+	{
+  		"name": "JavaSE-16",
+  		"path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home/"
  	},
  	{
    		"name": "JavaSE-17",
-   		"path": "/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/",
-  		"default": true
+   		"path": "/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/"
+
  	}
         ],
 	"java.home": "/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/"
