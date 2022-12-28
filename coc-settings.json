@@ -1,8 +1,7 @@
 {
 	"java.import.gradle.enabled": true,
 	"java.import.gradle.wrapper.enabled": false,
-	"java.autobuild.enabled": true,
-	"java.trace.server": "verbose",
+	"java.autobuild.enabled": false,
 	"java.jdt.ls.vmargs": "-javaagent:/Users/evgenii/.m2/repository/org/projectlombok/lombok-1.18.24.jar",
 	"java.contentProvider.preferred": "fernflower",
 	"java.configuration.runtimes": [
