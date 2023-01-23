@@ -63,7 +63,10 @@ return require('packer').startup(function(use)
 
   use 'mfussenegger/nvim-jdtls'
 
-  use 'ms-jpq/coq_nvim'
+  use {
+    'ms-jpq/coq_nvim',
+    commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49'
+  }
 
 end)
 

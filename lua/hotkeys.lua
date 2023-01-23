@@ -27,7 +27,3 @@ map('n', '<leader>tT', '<Cmd>ToggleTerm direction=float<CR>', opts)
 
 -- autocomplete
 vim.g["lsc_auto_map"] = vim.v["true"]
-
--- lsp
-
-

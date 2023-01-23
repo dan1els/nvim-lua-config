@@ -1,6 +1,3 @@
-
-local coq = require "coq" -- add this
-
 local jdtls = require('jdtls')
 local root_markers = {'gradlew', '.git'}
 local root_dir = require('jdtls.setup').find_root(root_markers)
@@ -20,6 +17,8 @@ local config = {
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
     '-Xmx4g',
+    '-javaagent:/Users/evgenii/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar',
+    '-Xbootclasspath/a:/Users/evgenii/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -68,9 +67,9 @@ config.on_attach = function(client, bufnr)
   vim.keymap.set('n', "<A-o>", jdtls.organize_imports, opts)
   vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
   vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
-  vim.keymap.set('n', "crv", jdtls.extract_variable, opts)
-  vim.keymap.set('v', 'crm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
-  vim.keymap.set('n', "crc", jdtls.extract_constant, opts)
+  vim.keymap.set('n', "xv", jdtls.extract_variable, opts)
+  vim.keymap.set('v', 'xm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
+  vim.keymap.set('n', "xc", jdtls.extract_constant, opts)
 end
 
 jdtls.start_or_attach(config)

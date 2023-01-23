@@ -53,7 +53,7 @@ require('nvim-treesitter.configs').setup {
     -- `false` will disable the whole extension
     enable = true,
 
-   additional_vim_regex_highlighting = true
+    additional_vim_regex_highlighting = true
   }
 }
 
@@ -64,4 +64,6 @@ require('lualine').setup()
 -- search
 require('telescope').setup()
 
+vim.g["coq_settings"] = { auto_start = vim.v["true"]} 
+require('coq')
 
