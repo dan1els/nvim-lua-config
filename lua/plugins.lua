@@ -61,7 +61,7 @@ return require('packer').startup(function(use)
 
   use 'nicwest/vim-camelsnek' -- case change
 
-  use 'neovim/nvim-lspconfig'
+  use 'mfussenegger/nvim-jdtls'
 
   use 'ms-jpq/coq_nvim'
 
