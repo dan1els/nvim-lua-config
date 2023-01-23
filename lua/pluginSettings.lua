@@ -65,13 +65,11 @@ require('lualine').setup()
 require('telescope').setup()
 
 
--- autocomplete
-vim.g["deoplete#enable_at_startup"] = 1
-local path = vim.fn.stdpath('data')..'/site/pack/packer/start/java-language-server/dist/lang_server_mac.sh'
-vim.g["lsc_server_commands"] = {java = path}
-vim.g["lsc_enable_autocomplete"] = vim.v["false"]
-vim.fn["deoplete#custom#option"]("sources", { _ = { "lsc" } })
---
---
+-- jdtls
+-- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 
--- tests
+
+require'lspconfig'.jdtls.setup{ cmd = { 'jdtls' } }
+
+local coq = require "coq" -- add this
+

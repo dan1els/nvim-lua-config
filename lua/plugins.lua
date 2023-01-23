@@ -57,23 +57,13 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-  use {
-    'Shougo/deoplete.nvim',
-    requires = {'hrsh7th/deoplete-vim-lsc'}
-  }
-
-   -- for some reason wanted java 19
-  use {
-    'georgewfraser/java-language-server',
-    requires = {'natebosch/vim-lsc'},
-    run = 'mvn package -DskipTests'
-  }
+  } 
 
   use 'nicwest/vim-camelsnek' -- case change
 
---  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+  use 'neovim/nvim-lspconfig'
+
+  use 'ms-jpq/coq_nvim'
 
 end)
 
