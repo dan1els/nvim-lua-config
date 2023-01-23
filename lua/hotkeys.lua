@@ -25,3 +25,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 map('n', '<leader>tt', '<Cmd>ToggleTerm<CR>', opts)
 map('n', '<leader>tT', '<Cmd>ToggleTerm direction=float<CR>', opts)
 
+-- autocomplete
+vim.g["lsc_auto_map"] = vim.v["true"]
+

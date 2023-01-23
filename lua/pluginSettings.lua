@@ -37,7 +37,7 @@ require('guess-indent').setup {
 
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "java", "yaml", "json" },
+  ensure_installed = { "c", "lua", "rust", "java", "kotlin", "yaml", "json" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -45,6 +45,8 @@ require('nvim-treesitter.configs').setup {
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
+
+  indent = { enable = true },
 
   -- List of parsers to ignore installing (for "all")
     highlight = {
@@ -63,7 +65,13 @@ require('lualine').setup()
 require('telescope').setup()
 
 
-
-
+-- autocomplete
+vim.g["deoplete#enable_at_startup"] = 1
+local path = vim.fn.stdpath('data')..'/site/pack/packer/start/java-language-server/dist/lang_server_mac.sh'
+vim.g["lsc_server_commands"] = {java = path}
+vim.g["lsc_enable_autocomplete"] = vim.v["false"]
+vim.fn["deoplete#custom#option"]("sources", { _ = { "lsc" } })
+--
+--
 
 -- tests
