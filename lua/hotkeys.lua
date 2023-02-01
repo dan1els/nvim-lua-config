@@ -2,6 +2,7 @@ local map = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}
 
 map('n', '<Leader>t', ':NvimTreeFocus<CR>', opts)
+map('n', '<Leader>T', ':NvimTreeToggle<CR>', opts)
 map('n', '<Leader>tf', ':NvimTreeFindFile<CR>', opts)
 map('n', '<Leader>tF', ':NvimTreeFindFileToggle<CR>', opts)
 
@@ -22,8 +23,11 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- Toggleterm
-map('n', '<leader>tt', '<Cmd>ToggleTerm<CR>', opts)
-map('n', '<leader>tT', '<Cmd>ToggleTerm direction=float<CR>', opts)
+map('n', 'ttb', '<Cmd>ToggleTerm<CR>', opts)
+map('n', 'ttw', '<Cmd>ToggleTerm direction=float<CR>', opts)
 
 -- autocomplete
 vim.g["lsc_auto_map"] = vim.v["true"]
+
+-- LSP
+map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts) -- quick fix

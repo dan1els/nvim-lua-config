@@ -64,6 +64,9 @@ require('lualine').setup()
 -- search
 require('telescope').setup()
 
-vim.g["coq_settings"] = { auto_start = vim.v["true"]} 
+vim.g["coq_settings"] = { 
+  auto_start = vim.v["true"],
+  display = { pum = { fast_close = vim.v["false"] } }
+} 
 require('coq')
 

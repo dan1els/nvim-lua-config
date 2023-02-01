@@ -68,5 +68,10 @@ return require('packer').startup(function(use)
     commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49'
   }
 
+  use 'mfussenegger/nvim-dap' -- de bu ger
+
+
+  use 'Shougo/neosnippet-snippets' --useful code snippets
+
 end)
 
