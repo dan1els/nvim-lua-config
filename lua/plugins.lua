@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
     }
   }
 
+  use "folke/neodev.nvim"
+
   -- use 'tanvirtin/monokai.nvim' -- theme monokai
  --  use 'doums/darcula' -- jetbrains like theme
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
@@ -61,17 +63,36 @@ return require('packer').startup(function(use)
 
   use 'nicwest/vim-camelsnek' -- case change
 
-  use 'mfussenegger/nvim-jdtls'
-
   use {
     'ms-jpq/coq_nvim',
-    commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49'
+    commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49' -- autocomplete
   }
 
+  -- Java lsp (jdtls)  
+   
+  use 'mfussenegger/nvim-jdtls'
+
   use 'mfussenegger/nvim-dap' -- de bu ger
+  use 'rcarriga/nvim-dap-ui'
 
+  -- jdtls backend stuff
 
-  use 'Shougo/neosnippet-snippets' --useful code snippets
+  use {
+    'eclipse/eclipse.jdt.ls', tag = 'v1.19.0',
+     run = 'mvn clean install -DskipTests=true'
+  }
+
+  -- jdtls extensions
+  use {
+    'microsoft/java-debug',
+     run = 'mvn clean install'
+  }
+
+  use {
+    'microsoft/vscode-java-test', tag = '0.37.0',
+    run = 'npm install && npm run build-plugin'
+  }
+
 
 end)
 

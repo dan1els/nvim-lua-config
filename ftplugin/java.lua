@@ -1,8 +1,20 @@
+local fn = vim.fn
+local plugins_install_path = fn.stdpath('data')..'/site/pack/packer/start'
+local jdtls_bin = plugins_install_path..'/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository'
+
 local jdtls = require('jdtls')
 local root_markers = {'gradlew', '.git'}
 local root_dir = require('jdtls.setup').find_root(root_markers)
 
 local workspace_folder = "/Users/evgenii/.jdtls_workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+
+-- collecting bundles
+-- java debug
+local bundles = {
+  plugins_install_path..'/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.44.0.jar',
+}
+-- vscode test
+vim.list_extend(bundles, vim.split(vim.fn.glob(plugins_install_path..'/vscode-java-test/server/*.jar', 1), "\n"))
 
 local config = {
   flags = {
@@ -22,8 +34,8 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', '/Users/evgenii/.local/share/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-    '-configuration', '/Users/evgenii/.local/share/jdtls/config_mac',
+    '-jar', jdtls_bin..'/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-configuration', jdtls_bin..'/config_mac',
     '-data', workspace_folder,
   },
   settings = {
@@ -58,6 +70,9 @@ local config = {
         }
       };
     };
+  },
+  init_options = {
+    bundles = bundles 
   }
 }
 
@@ -70,6 +85,23 @@ config.on_attach = function(client, bufnr)
   vim.keymap.set('n', "xv", jdtls.extract_variable, opts)
   vim.keymap.set('v', 'xm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
   vim.keymap.set('n', "xc", jdtls.extract_constant, opts)
+  --debug setup
+  require('jdtls').setup_dap(
+    { hotcodereplace = 'auto' }
+  )
 end
 
 jdtls.start_or_attach(config)
+
+
+--debug remote (move to the project settings)
+local dap = require('dap')
+dap.configurations.java = {
+  {
+    type = 'java';
+    request = 'attach';
+    name = "Debug (Attach) - Remote";
+    hostName = "127.0.0.1";
+    port = 5005;
+  },
+}

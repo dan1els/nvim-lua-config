@@ -70,3 +70,6 @@ vim.g["coq_settings"] = {
 } 
 require('coq')
 
+require("dapui").setup()
+
+
