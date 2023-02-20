@@ -93,6 +93,14 @@ return require('packer').startup(function(use)
     run = 'npm install && npm run build-plugin'
   }
 
+  use 'Yggdroot/indentLine'
+  
+  use 'mhartington/formatter.nvim'
+  use {
+    'google/google-java-format',
+     run = 'mvn clean install -DskipTests=true'
+  }
+
 
 end)
 

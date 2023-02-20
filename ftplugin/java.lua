@@ -85,10 +85,7 @@ config.on_attach = function(client, bufnr)
   vim.keymap.set('n', "xv", jdtls.extract_variable, opts)
   vim.keymap.set('v', 'xm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
   vim.keymap.set('n', "xc", jdtls.extract_constant, opts)
-  --debug setup
-  require('jdtls').setup_dap(
-    { hotcodereplace = 'auto' }
-  )
+  require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 end
 
 jdtls.start_or_attach(config)

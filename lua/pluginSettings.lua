@@ -1,6 +1,8 @@
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/'
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -66,10 +68,23 @@ require('telescope').setup()
 
 vim.g["coq_settings"] = { 
   auto_start = vim.v["true"],
-  display = { pum = { fast_close = vim.v["false"] } }
+ -- display = { pum = { fast_close = vim.v["false"] } }
 } 
 require('coq')
 
 require("dapui").setup()
 
+require'formatter'.setup{
+  filetype = {
+    java = {
+      function()
+        return {
+          exe = 'java',
+          args = { '-jar', install_path .. 'google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar', '-a', vim.api.nvim_buf_get_name(0) },
+          stdin = true
+        }
+      end
+    }
+  }
+}
 

@@ -31,3 +31,7 @@ vim.g["lsc_auto_map"] = vim.v["true"]
 
 -- LSP
 map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts) -- quick fix
+
+-- DAP & DAPUI
+map('n', '<leader>dm', '<cmd>lua require("dapui").open()<CR>', opts)
+map('n', '<leader>dmc', '<cmd>lua require("dapui").close()<CR>', opts)
