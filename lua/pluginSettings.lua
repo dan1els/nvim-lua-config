@@ -80,7 +80,7 @@ require'formatter'.setup{
       function()
         return {
           exe = 'java',
-          args = { '-jar', install_path .. 'google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar', '-a', vim.api.nvim_buf_get_name(0) },
+          args = { '-jar', install_path .. 'google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar', '-a --skip-reflowing-long-strings', vim.api.nvim_buf_get_name(0) },
           stdin = true
         }
       end
