@@ -65,6 +65,7 @@ require('lualine').setup()
 
 -- search
 require('telescope').setup()
+require("telescope").load_extension("ui-select")
 
 vim.g["coq_settings"] = { 
   auto_start = vim.v["true"],
@@ -87,4 +88,3 @@ require'formatter'.setup{
     }
   }
 }
-

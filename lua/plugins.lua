@@ -52,14 +52,12 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use 'vim-test/vim-test'
-
-  use 'preservim/tagbar' -- for fast traveling in class
-
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
-  } 
+  }
+
+  use 'nvim-telescope/telescope-ui-select.nvim'
 
   use 'nicwest/vim-camelsnek' -- case change
 
