@@ -79,16 +79,46 @@ _G.packer_plugins = {
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  coq_nvim = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/coq_nvim",
+    url = "https://github.com/ms-jpq/coq_nvim"
+  },
   ["darcula-solid.nvim"] = {
     loaded = true,
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/darcula-solid.nvim",
     url = "https://github.com/briones-gabriel/darcula-solid.nvim"
+  },
+  ["eclipse.jdt.ls"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/eclipse.jdt.ls",
+    url = "https://github.com/eclipse/eclipse.jdt.ls"
+  },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
+  ["google-java-format"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/google-java-format",
+    url = "https://github.com/google/google-java-format"
   },
   ["guess-indent.nvim"] = {
     config = { "\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17guess-indent\frequire\0" },
     loaded = true,
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/guess-indent.nvim",
     url = "https://github.com/nmac427/guess-indent.nvim"
+  },
+  indentLine = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/indentLine",
+    url = "https://github.com/Yggdroot/indentLine"
+  },
+  ["java-debug"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/java-debug",
+    url = "https://github.com/microsoft/java-debug"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -99,6 +129,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/lush.nvim",
     url = "https://github.com/rktjmp/lush.nvim"
+  },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-jdtls"] = {
     loaded = true,
@@ -140,10 +185,10 @@ _G.packer_plugins = {
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  tagbar = {
+  ["telescope-ui-select.nvim"] = {
     loaded = true,
-    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/tagbar",
-    url = "https://github.com/preservim/tagbar"
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -161,22 +206,22 @@ _G.packer_plugins = {
     path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/vim-camelsnek",
     url = "https://github.com/nicwest/vim-camelsnek"
   },
-  ["vim-test"] = {
+  ["vscode-java-test"] = {
     loaded = true,
-    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/vim-test",
-    url = "https://github.com/vim-test/vim-test"
+    path = "/Users/evgenii/.local/share/nvim/site/pack/packer/start/vscode-java-test",
+    url = "https://github.com/microsoft/vscode-java-test"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: guess-indent.nvim
-time([[Config for guess-indent.nvim]], true)
-try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17guess-indent\frequire\0", "config", "guess-indent.nvim")
-time([[Config for guess-indent.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: guess-indent.nvim
+time([[Config for guess-indent.nvim]], true)
+try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17guess-indent\frequire\0", "config", "guess-indent.nvim")
+time([[Config for guess-indent.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
