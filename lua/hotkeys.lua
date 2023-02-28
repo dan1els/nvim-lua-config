@@ -35,3 +35,8 @@ map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts) -- quick fix
 -- DAP & DAPUI
 map('n', '<leader>dm', '<cmd>lua require("dapui").open()<CR>', opts)
 map('n', '<leader>dmc', '<cmd>lua require("dapui").close()<CR>', opts)
+
+-- camelCase motion
+vim.g.wordmotion_prefix = '<leader>'
+vim.keymap.set('i', '<S-Left>', '<C-o><Plug>WordMotion_b', opts)
+vim.keymap.set('i', '<S-Right>', '<C-o><Plug>WordMotion_w', opts)

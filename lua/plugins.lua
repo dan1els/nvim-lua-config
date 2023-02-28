@@ -99,6 +99,7 @@ return require('packer').startup(function(use)
      run = 'mvn clean install -DskipTests=true'
   }
 
+  use 'chaoren/vim-wordmotion' -- useful camelcase motion
 
 end)
 
