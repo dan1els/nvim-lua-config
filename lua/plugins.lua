@@ -101,5 +101,6 @@ return require('packer').startup(function(use)
 
   use 'chaoren/vim-wordmotion' -- useful camelcase motion
 
+  use 'thinca/vim-qfreplace'
 end)
 

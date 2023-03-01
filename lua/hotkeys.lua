@@ -21,10 +21,15 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>fa', builtin.lsp_dynamic_workspace_symbols, {})
 
 -- Toggleterm
 map('n', 'ttb', '<Cmd>ToggleTerm<CR>', opts)
 map('n', 'ttw', '<Cmd>ToggleTerm direction=float<CR>', opts)
+vim.keymap.set('n', '<S-g>', '<cmd>TermExec cmd="lazygit" direction=float<CR>', opts)
+
 
 -- autocomplete
 vim.g["lsc_auto_map"] = vim.v["true"]
@@ -40,3 +45,5 @@ map('n', '<leader>dmc', '<cmd>lua require("dapui").close()<CR>', opts)
 vim.g.wordmotion_prefix = '<leader>'
 vim.keymap.set('i', '<S-Left>', '<C-o><Plug>WordMotion_b', opts)
 vim.keymap.set('i', '<S-Right>', '<C-o><Plug>WordMotion_w', opts)
+
+-- lazygit
