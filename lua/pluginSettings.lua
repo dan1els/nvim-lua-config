@@ -61,19 +61,19 @@ require('nvim-treesitter.configs').setup {
 
 -- statusbar
 require('lualine').setup()
+require('lualineColors')
 
 
 -- search
 require('telescope').setup()
 require("telescope").load_extension("ui-select")
+require("telescope").load_extension("dap")
 
 vim.g["coq_settings"] = { 
   auto_start = vim.v["true"],
- -- display = { pum = { fast_close = vim.v["false"] } }
+  display = { pum = { fast_close = vim.v["false"] } }
 } 
 require('coq')
-
-require("dapui").setup()
 
 require'formatter'.setup{
   filetype = {
@@ -89,4 +89,4 @@ require'formatter'.setup{
   }
 }
 
-
+require"fidget".setup{}

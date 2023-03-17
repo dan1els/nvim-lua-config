@@ -28,7 +28,7 @@ vim.keymap.set('n', '<leader>fa', builtin.lsp_dynamic_workspace_symbols, {})
 -- Toggleterm
 map('n', 'ttb', '<Cmd>ToggleTerm<CR>', opts)
 map('n', 'ttw', '<Cmd>ToggleTerm direction=float<CR>', opts)
-vim.keymap.set('n', '<S-g>', '<cmd>TermExec cmd="lazygit" direction=float<CR>', opts)
+vim.keymap.set('n', '<leader>g', '<cmd>TermExec cmd="lazygit" direction=float<CR>', opts)
 
 
 -- autocomplete
@@ -38,8 +38,8 @@ vim.g["lsc_auto_map"] = vim.v["true"]
 map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts) -- quick fix
 
 -- DAP & DAPUI
-map('n', '<leader>dm', '<cmd>lua require("dapui").open()<CR>', opts)
-map('n', '<leader>dmc', '<cmd>lua require("dapui").close()<CR>', opts)
+--map('n', '<leader>dm', '<cmd>lua require("dapui").open()<CR>', opts)
+--map('n', '<leader>dmc', '<cmd>lua require("dapui").close()<CR>', opts)
 
 -- camelCase motion
 vim.g.wordmotion_prefix = '<leader>'

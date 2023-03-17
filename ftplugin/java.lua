@@ -30,7 +30,6 @@ local config = {
     '-Dlog.level=ALL',
     '-Xmx4g',
     '-javaagent:/Users/evgenii/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar',
-    '-Xbootclasspath/a:/Users/evgenii/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -81,7 +80,7 @@ config.on_attach = function(client, bufnr)
   local opts = { silent = true, buffer = bufnr }
   vim.keymap.set('n', "<A-o>", jdtls.organize_imports, opts)
   vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
-  vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
+  vim.keymap.set('n', "<leader>dd", jdtls.test_nearest_method, opts)
   vim.keymap.set('n', "xv", jdtls.extract_variable, opts)
   vim.keymap.set('v', 'xm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
   vim.keymap.set('n', "xc", jdtls.extract_constant, opts)
@@ -100,5 +99,12 @@ dap.configurations.java = {
     name = "Debug (Attach) - Remote";
     hostName = "127.0.0.1";
     port = 5005;
+    timeout = 60000;
   },
+}
+
+vim.g['test#custom_strategies'] = { 
+  dapDebug = function() 
+    require'dap'.continue()
+  end
 }

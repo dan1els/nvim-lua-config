@@ -54,10 +54,11 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'} }
   }
 
   use 'nvim-telescope/telescope-ui-select.nvim'
+  use 'nvim-telescope/telescope-dap.nvim'
 
   use 'nicwest/vim-camelsnek' -- case change
 
@@ -87,9 +88,11 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'microsoft/vscode-java-test', tag = '0.37.0',
+    'microsoft/vscode-java-test', tag = '0.38.1',
     run = 'npm install && npm run build-plugin'
   }
+
+  use 'simonhicks/stacktrace.vim'
 
   use 'Yggdroot/indentLine'
   
@@ -102,5 +105,14 @@ return require('packer').startup(function(use)
   use 'chaoren/vim-wordmotion' -- useful camelcase motion
 
   use 'thinca/vim-qfreplace'
+
+  use 'vim-test/vim-test'
+
+  use 'Iron-E/nvim-libmodal'
+  use 'Iron-E/nvim-tabmode'
+
+  use 'j-hui/fidget.nvim'
+
+  use 'MunifTanjim/nui.nvim'
 end)
 
