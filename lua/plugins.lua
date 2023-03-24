@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
   -- jdtls backend stuff
 
   use {
-    'eclipse/eclipse.jdt.ls', tag = 'v1.19.0',
+    'eclipse/eclipse.jdt.ls', tag = 'v1.21.0',
      run = 'mvn clean install -DskipTests=true'
   }
 
