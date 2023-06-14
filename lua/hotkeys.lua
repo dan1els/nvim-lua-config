@@ -20,10 +20,26 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>fH', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>fa', builtin.lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', '<leader>fh', builtin.search_history, {})
+vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
+vim.keymap.set('n', '<leader>fqh', builtin.quickfixhistory, {})
+vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
+-- Telescope LSP
+vim.keymap.set('n', '<leader>lr', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>lw', builtin.lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', '<leader>ld', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>lf', builtin.diagnostics, {})
+-- Telescope git
+vim.keymap.set('n', '<leader>gH', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>gh', builtin.git_bcommits, {})
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>gf', builtin.git_status, {})
+vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
+
+vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
+
 
 -- Toggleterm
 map('n', 'ttb', '<Cmd>ToggleTerm<CR>', opts)

@@ -72,6 +72,7 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-jdtls'
 
   use 'mfussenegger/nvim-dap' -- de bu ger
+  use 'mfussenegger/nvim-dap-python'
   use 'rcarriga/nvim-dap-ui'
 
   -- jdtls backend stuff
@@ -114,5 +115,12 @@ return require('packer').startup(function(use)
   use 'j-hui/fidget.nvim'
 
   use 'MunifTanjim/nui.nvim'
+
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+
 end)
 

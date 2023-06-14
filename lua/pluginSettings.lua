@@ -39,7 +39,7 @@ require('guess-indent').setup {
 
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "java", "kotlin", "yaml", "json" },
+  ensure_installed = { "c", "lua", "rust", "java", "kotlin", "yaml", "json", "python" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -90,3 +90,11 @@ require'formatter'.setup{
 }
 
 require"fidget".setup{}
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers {                                                                                                                                                                   
+  function (server_name)                                                                                                                                                      
+    require("lspconfig")[server_name].setup {}                                                                                                                                                            
+  end                                                                                                                                                                                                   
+}      
