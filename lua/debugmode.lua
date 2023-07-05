@@ -39,7 +39,7 @@ local debugConf = {
   size = 20,
 } 
 dapui.setup({
-  layouts = { consoleConf }
+--   layouts = { consoleConf }
 })
 local view = "console"
 local switch = function() 
@@ -65,8 +65,8 @@ end
 
 local debugmode = libmodal.layer.new({})
 debugmode:map("n", "uu", function() dapui.toggle() end, {})
-debugmode:map("n", "+", switch, {})
-debugmode:map("n", "-", switch, {})
+--debugmode:map("n", "+", switch, {})
+--debugmode:map("n", "-", switch, {})
 debugmode:map("n", "e", function() dapui.eval()  end, {})
 debugmode:map("n", "R", function() dap.continue()  end, {})
 debugmode:map("n", "b", function() dap.toggle_breakpoint()  end, {})
@@ -78,20 +78,7 @@ debugmode:map("n", "C", function() require'telescope'.extensions.dap.commands {}
 debugmode:map("n", "B", function() require'telescope'.extensions.dap.list_breakpoints{} end, {})
 debugmode:map("n", "V", function() require'telescope'.extensions.dap.variables{} end, {})
 debugmode:map("n", "F", function() require'telescope'.extensions.dap.frames{} end, {})
-debugmode:map("n", "<esc>", function()  vim.g.libmodalActiveLayerName = nil debugmode:exit() end, {})
+debugmode:map("n", "<leader>dm", function()  vim.g.libmodalActiveLayerName = nil debugmode:exit() end, {})
 
-vim.keymap.set("n", "<leader>d", function() debugmode:enter() vim.g.libmodalActiveLayerName = 'DEBUG' end, {})
+vim.keymap.set("n", "<leader>dm", function() debugmode:enter() vim.g.libmodalActiveLayerName = 'DEBUG' end, {})
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  debugmode:enter()
-  vim.g.libmodalActiveLayerName = 'DEBUG'
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  debugmode:exit()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  debugmode:exit()
-  dapui.close()
-end

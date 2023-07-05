@@ -67,6 +67,8 @@ return require('packer').startup(function(use)
     commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49' -- autocomplete
   }
 
+  use 'neovim/nvim-lspconfig'
+
   -- Java lsp (jdtls)  
    
   use 'mfussenegger/nvim-jdtls'
@@ -116,11 +118,29 @@ return require('packer').startup(function(use)
 
   use 'MunifTanjim/nui.nvim'
 
+  use({
+  "jackMort/ChatGPT.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  })
+
   use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
+  "folke/which-key.nvim",
+  config = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+    end
   }
+
+  use "linux-cultist/venv-selector.nvim"
 
 end)
 

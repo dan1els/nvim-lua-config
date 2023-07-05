@@ -63,3 +63,19 @@ vim.keymap.set('i', '<S-Left>', '<C-o><Plug>WordMotion_b', opts)
 vim.keymap.set('i', '<S-Right>', '<C-o><Plug>WordMotion_w', opts)
 
 -- lazygit
+-- ChatGpt
+local chatgpt = require("chatgpt")
+require("which-key").register({
+    p = {
+        name = "ChatGPT",
+        e = {
+            function()
+                chatgpt.edit_with_instructions()
+            end,
+            "Edit with instructions",
+        },
+    },
+}, {
+    prefix = "<leader>",
+    mode = "v",
+})
