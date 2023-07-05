@@ -1,75 +1,94 @@
-local map = vim.api.nvim_set_keymap
-local opts = {noremap = true, silent = true}
-
-map('n', '<Leader>t', ':NvimTreeFocus<CR>', opts)
-map('n', '<Leader>T', ':NvimTreeToggle<CR>', opts)
-map('n', '<Leader>tf', ':NvimTreeFindFile<CR>', opts)
-map('n', '<Leader>tF', ':NvimTreeFindFileToggle<CR>', opts)
-
-
--- Tabs
-map('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
-map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<S-W>', '<Cmd>BufferClose<CR>', opts)
-
--- Tagbar
-map('n', '<S-M>', '<Cmd>TagbarToggle<CR>', opts)
-
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fH', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>fh', builtin.search_history, {})
-vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
-vim.keymap.set('n', '<leader>fqh', builtin.quickfixhistory, {})
-vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
--- Telescope LSP
-vim.keymap.set('n', '<leader>lr', builtin.lsp_references, {})
-vim.keymap.set('n', '<leader>lw', builtin.lsp_dynamic_workspace_symbols, {})
-vim.keymap.set('n', '<leader>ld', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>lf', builtin.diagnostics, {})
--- Telescope git
-vim.keymap.set('n', '<leader>gH', builtin.git_commits, {})
-vim.keymap.set('n', '<leader>gh', builtin.git_bcommits, {})
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
-vim.keymap.set('n', '<leader>gf', builtin.git_status, {})
-vim.keymap.set('n', '<leader>gs', builtin.git_stash, {})
-
-vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
-
-
--- Toggleterm
-map('n', 'ttb', '<Cmd>ToggleTerm<CR>', opts)
-map('n', 'ttw', '<Cmd>ToggleTerm direction=float<CR>', opts)
-vim.keymap.set('n', '<leader>g', '<cmd>TermExec cmd="lazygit" direction=float<CR>', opts)
-
-
 -- autocomplete
 vim.g["lsc_auto_map"] = vim.v["true"]
 
--- LSP
-map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts) -- quick fix
+local wk = require("which-key")
 
--- DAP & DAPUI
---map('n', '<leader>dm', '<cmd>lua require("dapui").open()<CR>', opts)
---map('n', '<leader>dmc', '<cmd>lua require("dapui").close()<CR>', opts)
+-- tree
+wk.register({
+    t = {
+        name = "Tree",
+        t = {"<cmd>NvimTreeFocus<cr>", "Focus"},
+        T = {"<cmd>NvimTreeToggle<cr>", "Toggle"},
+        f = {"<cmd>NvimTreeFindFile<cr>", "Find file"},
+        F = {"<cmd>NvimTreeFindFileToggle<cr>", "Find file toggle"},
+    }
+}, {
+    prefix = "<leader>",
+    mode = "n",
+})
+-- buffers
+wk.register({
+    ["<Tab>"] = { "<Cmd>BufferNext<CR>", "Next tab" },
+    ["<S-Tab>"] = { "<Cmd>BufferPrevious<CR>", "Prev tab" },
+    ["<S-W>"] = { "<Cmd>BufferClose<CR>", "Close tab" },
+})
+-- ttagbar
+wk.register({
+    ["<S-M>"] = { "<Cmd>TagbarToggle<CR>", "Tagbar" },
+})
 
--- camelCase motion
-vim.g.wordmotion_prefix = '<leader>'
-vim.keymap.set('i', '<S-Left>', '<C-o><Plug>WordMotion_b', opts)
-vim.keymap.set('i', '<S-Right>', '<C-o><Plug>WordMotion_w', opts)
+local builtin = require('telescope.builtin')
+-- Telescope files
+wk.register({
+    f = {
+        name = "Telescope files",
+        f = { builtin.find_files, "Find files"},
+        g = { builtin.live_grep, "Live grep"},
+        b = { builtin.buffers, "Buffers"},
+        H = { builtin.help_tags, "Help tags"},
+        w = { builtin.grep_string, "Grep string"},
+        h = { builtin.search_history, "Search history"},
+        q = { 
+            ["<space>"] = { builtin.quickfix, "Quickfix" },
+            h = { builtin.quickfixhistory, "Quickfix history"},
+        },
+    }}, {
+        prefix = "<leader>",
+        mode = "n",
+    })
 
--- lazygit
+-- Telescope LSP
+wk.register({
+    l = {
+        name = "Telescope LSP",
+        r = { builtin.lsp_references, "References"},
+        w = { builtin.lsp_dynamic_workspace_symbols, "Workspace symbols"},
+        d = { builtin.lsp_document_symbols, "Document symbols"},
+        f = { builtin.diagnostics, "Diagnostics"},
+    }}, {
+        prefix = "<leader>",
+        mode = "n",
+    })
+-- Telescope git
+wk.register({
+    g = {
+        name = "Telescope git",
+        H = { builtin.git_commits, "Commits"},
+        h = { builtin.git_bcommits, "B Commits"},
+        b = { builtin.git_branches, "Branches"},
+        i = { builtin.git_status, "Status"},
+        i = { builtin.git_stash, "Stash"},
+    }}, {
+        prefix = "<leader>",
+        mode = "n",
+    })
+
+-- Toggleterm
+wk.register({
+    t = {
+        name = "Terminal",
+        ["tb"] = {'<Cmd>ToggleTerm<CR>', "Toogle bottom"},
+        ["tw"] = {'<Cmd>ToggleTerm direction=float<CR>', "Toggle float"}
+    }
+})
+
 -- ChatGpt
-local chatgpt = require("chatgpt")
-require("which-key").register({
+wk.register({
     p = {
         name = "ChatGPT",
         e = {
             function()
+                local chatgpt = require("chatgpt")
                 chatgpt.edit_with_instructions()
             end,
             "Edit with instructions",
@@ -79,3 +98,22 @@ require("which-key").register({
     prefix = "<leader>",
     mode = "v",
 })
+-- LSP
+wk.register({
+    ["ga"] = {'<cmd>lua vim.lsp.buf.code_action()<CR>', "Code action"} 
+})
+
+-- WordMotion
+wk.register({
+   ["<S-Left>"] = {'<C-o><Plug>WordMotion_b', "Word prev"}
+  }, {
+    prefix = "<leader>",
+    mode = "i",
+})
+wk.register({
+    ["<S-Right>"] = {'<C-o><Plug>WordMotion_w', "Word next"}
+  }, {
+    prefix = "<leader>",
+    mode = "i",
+})
+
