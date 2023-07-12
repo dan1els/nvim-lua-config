@@ -100,7 +100,19 @@ wk.register({
 })
 -- LSP
 wk.register({
-    ["ga"] = {'<cmd>lua vim.lsp.buf.code_action()<CR>', "Code action"} 
+    ['<space>'] = {
+        name = 'language/lsp',
+        r    = { '<cmd>Telescope lsp_references<cr>', 'references' },
+        rn    = { vim.lsp.buf.rename, 'rename' },
+        D    = { vim.lsp.buf.type_definition, 'type definition' },
+        a    = { vim.lsp.buf.code_action, 'code action' },
+        e    = { vim.diagnostic.open_float, 'diagnostics' },
+        f    = { vim.lsp.buf.format, 'format' },
+        i    = { vim.lsp.buf.implementation, 'implementation' },
+        s    = { vim.lsp.buf.signature_help, 'signature help' },
+        ['<space>'] = { vim.diagnostic.goto_next, 'next issue' },
+        ['<bs>'] = { vim.diagnostic.goto_prev, 'prev issue' },
+    }
 })
 
 -- WordMotion

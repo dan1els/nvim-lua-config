@@ -71,7 +71,7 @@ require("telescope").load_extension("dap")
 
 vim.g["coq_settings"] = { 
   auto_start = vim.v["true"],
-  display = { pum = { fast_close = vim.v["false"] } }
+  -- display = { pum = { fast_close = vim.v["false"] } }
 } 
 require('coq')
 
@@ -94,3 +94,10 @@ require"fidget".setup{}
 require("chatgpt").setup({
     api_key_cmd = "cat /Users/evgenii/.config/chatgpt"
 })
+
+
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup {
+  autostart = true
+}
+
