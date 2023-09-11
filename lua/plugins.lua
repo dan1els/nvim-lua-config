@@ -1,4 +1,18 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -64,7 +78,7 @@ return require('packer').startup(function(use)
 
   use {
     'ms-jpq/coq_nvim',
-    commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49' -- autocomplete
+    --commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49' -- autocomplete
   }
 
   use 'neovim/nvim-lspconfig'
