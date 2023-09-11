@@ -142,5 +142,21 @@ return require('packer').startup(function(use)
 
   use "linux-cultist/venv-selector.nvim"
 
+  use 'averms/black-nvim'
+
+  -- mac os related stuff to keyboard layout switcher
+  -- for oothers check this https://github.com/ivanesmantovich/xkbswitch.nvim
+  use {
+    'vovkasm/input-source-switcher',
+    run = 'mkdir build && cd build && cmake .. && make && make install'
+  }
+
+  use {
+    'ivanesmantovich/xkbswitch.nvim',
+    requires = {
+      'vovkasm/input-source-switcher'
+    }
+  }
+
 end)
 

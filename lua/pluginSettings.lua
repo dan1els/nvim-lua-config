@@ -101,3 +101,5 @@ lspconfig.pyright.setup {
   autostart = true
 }
 
+-- auto layout switcher
+require('xkbswitch').setup()
