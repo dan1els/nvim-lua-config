@@ -11,7 +11,7 @@ local workspace_folder = "/Users/evgenii/.jdtls_workspace/" .. vim.fn.fnamemodif
 -- collecting bundles
 -- java debug
 local bundles = {
-  plugins_install_path..'/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.44.0.jar',
+  plugins_install_path..'/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.49.0.jar',
 }
 -- vscode test
 vim.list_extend(bundles, vim.split(vim.fn.glob(plugins_install_path..'/vscode-java-test/server/*.jar', 1), "\n"))
@@ -28,7 +28,7 @@ local config = {
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
-    '-Xmx4g',
+    '-Xmx2g',
     '-javaagent:/Users/evgenii/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
@@ -111,3 +111,9 @@ vim.g['test#custom_strategies'] = {
     require'dap'.continue()
   end
 }
+
+vim.api.nvim_create_user_command('DebugNearest', function()
+  vim.g["test#java#gradletest#options"] = '--debug-jvm'
+  vim.cmd("TestNearest")
+  vim.g["test#java#gradletest#options"] = '--debug-jvm'
+end,{})

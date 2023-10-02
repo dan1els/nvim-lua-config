@@ -99,9 +99,9 @@ return require('packer').startup(function(use)
      run = 'mvn clean install -DskipTests=true'
   }
 
-  -- jdtls extensions
+  -- jdtls extensions (fix java.lua when doing version up)
   use {
-    'microsoft/java-debug',
+    'microsoft/java-debug', tag = '0.49.0'
      run = 'mvn clean install'
   }
 

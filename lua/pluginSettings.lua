@@ -96,3 +96,4 @@ require("chatgpt").setup({
 require('xkbswitch').setup()
 
 require('toggleterm').setup()
+
