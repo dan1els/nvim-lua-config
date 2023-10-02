@@ -39,7 +39,7 @@ local debugConf = {
   size = 20,
 } 
 dapui.setup({
---   layouts = { consoleConf }
+  layouts = { consoleConf }
 })
 local view = "console"
 local switch = function() 
@@ -65,8 +65,8 @@ end
 
 local debugmode = libmodal.layer.new({})
 debugmode:map("n", "uu", function() dapui.toggle() end, {})
---debugmode:map("n", "+", switch, {})
---debugmode:map("n", "-", switch, {})
+debugmode:map("n", "+", switch, {})
+debugmode:map("n", "-", switch, {})
 debugmode:map("n", "e", function() dapui.eval()  end, {})
 debugmode:map("n", "R", function() dap.continue()  end, {})
 debugmode:map("n", "b", function() dap.toggle_breakpoint()  end, {})

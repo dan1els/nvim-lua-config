@@ -1,3 +1,12 @@
+local lspconfig = require("lspconfig")
+local coq = require('coq')
+
+lspconfig.pyright.setup {
+  capabilities = coq.lsp_ensure_capabilities(),
+  autostart = true,
+}
+
+
 venv_selector = require("venv-selector")
 
 venv_selector.setup({
@@ -18,3 +27,5 @@ dap.configurations.python = {
     timeout = 60000;
   },
 }
+
+vim.cmd("LspStart")

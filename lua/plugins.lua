@@ -22,8 +22,10 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -37,9 +39,7 @@ return require('packer').startup(function(use)
  --  use 'doums/darcula' -- jetbrains like theme
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
 
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()  -- embedded terminal
-    require("toggleterm").setup()
-  end}
+  use "akinsho/toggleterm.nvim"
 
 
   use { 
@@ -78,10 +78,11 @@ return require('packer').startup(function(use)
 
   use {
     'ms-jpq/coq_nvim',
-    --commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49' -- autocomplete
   }
 
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+  }
 
   -- Java lsp (jdtls)  
    

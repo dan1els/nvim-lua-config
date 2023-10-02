@@ -69,11 +69,6 @@ require('telescope').setup()
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("dap")
 
-vim.g["coq_settings"] = { 
-  auto_start = vim.v["true"],
-  -- display = { pum = { fast_close = vim.v["false"] } }
-} 
-require('coq')
 
 require'formatter'.setup{
   filetype = {
@@ -91,15 +86,18 @@ require'formatter'.setup{
 
 require"fidget".setup{}
 
+vim.g["coq_settings"] = { 
+  auto_start = vim.v["true"],
+  -- display = { pum = { fast_close = vim.v["false"] } }
+}
+require'coq'
+
+
 require("chatgpt").setup({
     api_key_cmd = "cat /Users/evgenii/.config/chatgpt"
 })
 
-
-local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {
-  autostart = true
-}
-
 -- auto layout switcher
 require('xkbswitch').setup()
+
+require('toggleterm').setup()
