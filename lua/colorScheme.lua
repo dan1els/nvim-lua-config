@@ -25,4 +25,7 @@ end
 
 
 vim.cmd 'set termguicolors'
-vim.api.nvim_command('autocmd VimEnter,ColorScheme * lua customise_colorscheme()')
+--vim.api.nvim_command('autocmd VimEnter,ColorScheme * lua customise_colorscheme()')
+
+vim.cmd.colorscheme "catppuccin"
+

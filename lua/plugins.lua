@@ -39,6 +39,8 @@ return require('packer').startup(function(use)
  --  use 'doums/darcula' -- jetbrains like theme
   use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
 
+  use { "catppuccin/nvim", as = "catppuccin" }
+
   use "akinsho/toggleterm.nvim"
 
 
@@ -101,7 +103,7 @@ return require('packer').startup(function(use)
 
   -- jdtls extensions (fix java.lua when doing version up)
   use {
-    'microsoft/java-debug', tag = '0.49.0'
+    'microsoft/java-debug', tag = '0.49.0',
      run = 'mvn clean install'
   }
 
