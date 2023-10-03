@@ -44,11 +44,11 @@ return require('packer').startup(function(use)
   use "akinsho/toggleterm.nvim"
 
 
-  use { 
+  use {
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}   -- tabs
   }
-  
+
   use {
     'nmac427/guess-indent.nvim',
     config = function() require('guess-indent').setup {} end, -- indents
@@ -87,7 +87,7 @@ return require('packer').startup(function(use)
   }
 
   -- Java lsp (jdtls)  
-   
+
   use 'mfussenegger/nvim-jdtls'
 
   use 'mfussenegger/nvim-dap' -- de bu ger
@@ -115,7 +115,7 @@ return require('packer').startup(function(use)
   use 'simonhicks/stacktrace.vim'
 
   use 'Yggdroot/indentLine'
-  
+
   use 'mhartington/formatter.nvim'
   use {
     'google/google-java-format',
@@ -177,6 +177,9 @@ return require('packer').startup(function(use)
 
   -- linter
   use 'mfussenegger/nvim-lint'
+
+  -- jupyter
+  use 'luk400/vim-jukit'
 
 end)
 
