@@ -2,7 +2,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/'
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -65,20 +64,6 @@ require("telescope").load_extension("ui-select")
 require("telescope").load_extension("dap")
 
 
-require'formatter'.setup{
-  filetype = {
-    java = {
-      function()
-        return {
-          exe = 'java',
-          args = { '-jar', install_path .. 'google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar', '-a --skip-reflowing-long-strings', vim.api.nvim_buf_get_name(0) },
-          stdin = true
-        }
-      end
-    }
-  }
-}
-
 require"fidget".setup{}
 
 vim.g["coq_settings"] = { 
@@ -97,3 +82,21 @@ require('xkbswitch').setup()
 
 require('toggleterm').setup()
 
+-- linters
+-- (requires additional software to be installed)
+require('lint').linters_by_ft = {
+  java = {'checkstyle'},
+  python = {'mypy'},
+  lua = {'luacheck'}
+}
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
+vim.api.nvim_create_user_command("TryLint", function()
+    require("lint").try_lint()
+  end, {}
+)

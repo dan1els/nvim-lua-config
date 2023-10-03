@@ -117,3 +117,20 @@ vim.api.nvim_create_user_command('DebugNearest', function()
   vim.cmd("TestNearest")
   vim.g["test#java#gradletest#options"] = '--debug-jvm'
 end,{})
+
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/'
+require'formatter'.setup{
+  filetype = {
+    java = {
+      function()
+        return {
+          exe = 'java',
+          args = { '-jar', install_path .. 'google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar', '-a --skip-reflowing-long-strings', vim.api.nvim_buf_get_name(0) },
+          stdin = true
+        }
+      end
+    }
+  }
+}
+
+

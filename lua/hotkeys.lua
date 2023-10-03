@@ -107,12 +107,16 @@ wk.register({
         D    = { vim.lsp.buf.type_definition, 'type definition' },
         a    = { vim.lsp.buf.code_action, 'code action' },
         e    = { vim.diagnostic.open_float, 'diagnostics' },
-        f    = { vim.lsp.buf.format, 'format' },
         i    = { vim.lsp.buf.implementation, 'implementation' },
         s    = { vim.lsp.buf.signature_help, 'signature help' },
         ['<space>'] = { vim.diagnostic.goto_next, 'next issue' },
         ['<bs>'] = { vim.diagnostic.goto_prev, 'prev issue' },
     }
+})
+
+-- Formatter
+wk.register({
+    ["<S-f>"] = {'<cmd>Format<cr>', 'format'}
 })
 
 -- WordMotion
