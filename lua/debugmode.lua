@@ -37,26 +37,26 @@ local debugConf = {
   },
   position = "bottom",
   size = 20,
-} 
+}
 dapui.setup({
   layouts = { consoleConf }
 })
 local view = "console"
-local switch = function() 
-  if view == "console" then 
-    dapui.close() 
+local switch = function()
+  if view == "console" then
+    dapui.close()
     dapui.setup({
       layouts = { debugConf }
     })
-    dapui.open() 
-    view = "debug" 
-  else 
-    dapui.close() 
+    dapui.open()
+    view = "debug"
+  else
+    dapui.close()
     dapui.setup({
       layouts = { consoleConf }
     })
-    dapui.open() 
-    view = "console" 
+    dapui.open()
+    view = "console"
   end
 end
 
@@ -64,7 +64,7 @@ end
 -- require'telescope'.extensions.dap.configurations{}
 
 local debugmode = libmodal.layer.new({})
-debugmode:map("n", "uu", function() dapui.toggle() end, {})
+debugmode:map("n", "<S-U>", function() dapui.toggle() end, {})
 debugmode:map("n", "+", switch, {})
 debugmode:map("n", "-", switch, {})
 debugmode:map("n", "e", function() dapui.eval()  end, {})
