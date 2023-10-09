@@ -132,4 +132,26 @@ wk.register({
     prefix = "<leader>",
     mode = "i",
 })
-
+--jukit
+wk.register({
+    ["<cr>"] = {'<cmd>call jukit#send#line()<cr>', "Send line to repl"},
+    ["np"] = {'<cmd>call jukit#convert#notebook_convert(g:jukit_notebook_viewer)<cr>', 'Convert notebook'},
+    ["os"] = {'<cmd>call jukit#splits#output()<cr>', 'Open REPL'},
+    -- cells
+    ["cd"] = {'<cmd>call jukit#cells#delete()<cr>', 'Delete cell'},
+    ["co"] = {'<cmd>call jukit#cells#create_below(0)<cr>', 'New code cell below'},
+    ["cO"] = {'<cmd>call jukit#cells#create_above(0)<cr>', 'New code cell above'},
+    ["ct"] = {'<cmd>call jukit#cells#create_below(1)<cr>', 'New text cell below'},
+    ["cT"] = {'<cmd>call jukit#cells#create_above(1)<cr>', 'New text cell above'},
+}, {
+    prefix = "<leader>",
+    noremap = true,
+    mode = "n",
+})
+wk.register({
+    ["<cr>"] = {'<cmd>call jukit#send#line()<cr>'},
+}, {
+    prefix = "<leader>",
+    noremap = true,
+    mode = "v",
+})
