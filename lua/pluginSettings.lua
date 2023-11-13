@@ -100,3 +100,39 @@ vim.api.nvim_create_user_command("TryLint", function()
     require("lint").try_lint()
   end, {}
 )
+
+local bufferline = require("bufferline")
+bufferline.setup {
+    options = {
+        mode = "buffers", -- set to "tabs" to only show tabpages instead
+        style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
+        themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
+        numbers = "number",
+        diagnostics = "nvim_lsp",
+        diagnostics_update_in_insert = false,
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+          local s = " "
+          for e, n in pairs(diagnostics_dict) do
+            local sym = e == "error" and " "
+              or (e == "warning" and " " or "" )
+            s = s .. n .. sym
+          end
+          return s
+        end,
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = "File Tree",
+                text_align = "center",
+                separator = true,
+            }
+        },
+        color_icons = true, -- whether or not to add the filetype icon highlights
+        separator_style = "thick",
+        hover = {
+            enabled = true,
+            delay = 200,
+            reveal = {'close'}
+        },
+    }
+}

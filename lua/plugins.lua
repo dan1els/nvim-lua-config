@@ -44,10 +44,7 @@ return require('packer').startup(function(use)
   use "akinsho/toggleterm.nvim"
 
 
-  use {
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'}   -- tabs
-  }
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
   use {
     'nmac427/guess-indent.nvim',

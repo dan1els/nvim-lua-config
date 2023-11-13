@@ -18,9 +18,9 @@ wk.register({
 })
 -- buffers
 wk.register({
-    ["<Tab>"] = { "<Cmd>BufferNext<CR>", "Next tab" },
-    ["<S-Tab>"] = { "<Cmd>BufferPrevious<CR>", "Prev tab" },
-    ["<S-W>"] = { "<Cmd>BufferClose<CR>", "Close tab" },
+    ["<Tab>"] = { "<Cmd>BufferLineCycleNext<CR>", "Next tab" },
+    ["<S-Tab>"] = { "<Cmd>BufferLineCyclePrev<CR>", "Prev tab" },
+    ["<S-W>"] = { "<Cmd>BufferLineCloseOthers<CR>", "Close all other tabs" },
 })
 -- ttagbar
 wk.register({
