@@ -69,7 +69,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.3',
     requires = { {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'} }
   }
 
@@ -97,7 +97,7 @@ return require('packer').startup(function(use)
   -- jdtls backend stuff
 
   use {
-    'eclipse/eclipse.jdt.ls', tag = 'v1.21.0',
+    'eclipse/eclipse.jdt.ls', tag = 'v1.29.0',
      run = 'mvn clean install -DskipTests=true'
   }
 
@@ -180,6 +180,10 @@ return require('packer').startup(function(use)
       }
       end
   }
+  
+  -- git
+  use "sindrets/diffview.nvim"
+  use "mhinz/vim-signify"
 
 end)
 

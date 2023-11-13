@@ -33,7 +33,8 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-    '-jar', jdtls_bin..'/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+   -- '-jar', jdtls_bin..'/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', jdtls_bin..'/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
     '-configuration', jdtls_bin..'/config_mac',
     '-data', workspace_folder,
   },
@@ -115,7 +116,7 @@ vim.g['test#custom_strategies'] = {
 vim.api.nvim_create_user_command('DebugNearest', function()
   vim.g["test#java#gradletest#options"] = '--debug-jvm'
   vim.cmd("TestNearest")
-  vim.g["test#java#gradletest#options"] = '--debug-jvm'
+  vim.g["test#java#gradletest#options"] = ''
 end,{})
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/'

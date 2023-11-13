@@ -85,7 +85,7 @@ require('toggleterm').setup()
 -- linters
 -- (requires additional software to be installed)
 require('lint').linters_by_ft = {
-  java = {'checkstyle'},
+  --java = {'checkstyle'},
   python = {'mypy'},
   lua = {'luacheck'}
 }
