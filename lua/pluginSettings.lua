@@ -73,33 +73,8 @@ vim.g["coq_settings"] = {
 require'coq'
 
 
-require("chatgpt").setup({
-    api_key_cmd = "cat /Users/evgenii/.config/chatgpt"
-})
-
--- auto layout switcher
-require('xkbswitch').setup()
-
 require('toggleterm').setup()
 
--- linters
--- (requires additional software to be installed)
-require('lint').linters_by_ft = {
-  --java = {'checkstyle'},
-  python = {'mypy'},
-  lua = {'luacheck'}
-}
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
-
-vim.api.nvim_create_user_command("TryLint", function()
-    require("lint").try_lint()
-  end, {}
-)
 
 local bufferline = require("bufferline")
 bufferline.setup {

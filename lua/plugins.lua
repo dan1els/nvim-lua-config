@@ -132,35 +132,9 @@ return require('packer').startup(function(use)
 
   use 'MunifTanjim/nui.nvim'
 
-  use({
-  "jackMort/ChatGPT.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  })
-
   use "linux-cultist/venv-selector.nvim"
 
   use 'averms/black-nvim'
-
-  -- mac os related stuff to keyboard layout switcher
-  -- for oothers check this https://github.com/ivanesmantovich/xkbswitch.nvim
-  use {
-    'vovkasm/input-source-switcher',
-    run = 'mkdir build && cd build && cmake .. && make && make install'
-  }
-
-  use {
-    'ivanesmantovich/xkbswitch.nvim',
-    requires = {
-      'vovkasm/input-source-switcher'
-    }
-  }
-
-  -- linter
-  use 'mfussenegger/nvim-lint'
 
   -- jupyter
   use 'luk400/vim-jukit'

@@ -6,6 +6,10 @@ lspconfig.pyright.setup {
   autostart = true,
 }
 
+lspconfig.ruff_lsp.setup {
+  capabilities = coq.lsp_ensure_capabilities(),
+  autostart = true,
+}
 
 venv_selector = require("venv-selector")
 
