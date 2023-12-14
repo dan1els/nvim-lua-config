@@ -16,7 +16,7 @@ local TAN          = '#f4c069'
 local TEAL         = '#60afff'
 local TURQOISE     = '#2bff99'
 local YELLOW       = '#f0df33'
- 
+
 local MODES =
 { -- {{{
   ['c']  = {'COMMAND-LINE', RED},
@@ -39,41 +39,53 @@ local MODES =
   ['V']  = {'VISUAL LINE', BLUE},
   ['�'] = {'VISUAL BLOCK', BLUE},
   ['!']  = {'SHELL', YELLOW},
- 
+
   -- libmodal
   ['DEBUG'] = TAN,
 } -- }}}
- 
+
 local MODE_HL_GROUP = 'LualineViMode'
- 
+
 --[[/* FELINE CONFIG */]]
- 
+
 vim.api.nvim_create_autocmd('ModeChanged', {callback = function()
   require('lualine').refresh {scope = 'window',  place = {'statusline'}}
 end})
- 
-require('lualine').setup {sections = {lualine_a = {{
-  function() -- auto change color according the vim mode
-    local mode_color, mode_name
- 
-    if vim.g.libmodalActiveModeName then
-      mode_name = vim.g.libmodalActiveModeName
-      mode_color = MODES[mode_name]
-    elseif vim.g.libmodalActiveLayerName then
-      mode_name = vim.g.libmodalActiveLayerName
-      mode_color = MODES[mode_name]
-    else
-      local current_mode = MODES[vim.api.nvim_get_mode().mode]
-      mode_name = current_mode[1]
-      mode_color = current_mode[2]
-    end
- 
-    vim.api.nvim_set_hl(0, MODE_HL_GROUP, {fg = mode_color, bold = true})
- 
-    return mode_name..' '
-  end,
-  icon = {'▊', align = 'left'},
-  color = MODE_HL_GROUP,
-  padding = 0,
-}}}}
-  
+
+local git_blame = require('gitblame')
+
+git_blame.is_blame_text_available()
+git_blame.get_current_blame_text()
+
+require('lualine').setup {
+  sections = {
+    lualine_a = {{
+      function() -- auto change color according the vim mode
+        local mode_color, mode_name
+
+        if vim.g.libmodalActiveModeName then
+          mode_name = vim.g.libmodalActiveModeName
+          mode_color = MODES[mode_name]
+        elseif vim.g.libmodalActiveLayerName then
+          mode_name = vim.g.libmodalActiveLayerName
+          mode_color = MODES[mode_name]
+        else
+          local current_mode = MODES[vim.api.nvim_get_mode().mode]
+          mode_name = current_mode[1]
+          mode_color = current_mode[2]
+        end
+
+        vim.api.nvim_set_hl(0, MODE_HL_GROUP, {fg = mode_color, bold = true})
+
+        return mode_name..' '
+      end,
+      icon = {'▊', align = 'left'},
+      color = MODE_HL_GROUP,
+      padding = 0,
+    }},
+    lualine_c = {
+        { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available }
+    }
+  }
+}
+

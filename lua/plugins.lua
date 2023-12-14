@@ -151,6 +151,7 @@ return require('packer').startup(function(use)
   -- git
   use "sindrets/diffview.nvim"
   use "mhinz/vim-signify"
+  use 'f-person/git-blame.nvim'
 
   -- code completion
   use 'hrsh7th/cmp-nvim-lsp'
