@@ -84,6 +84,7 @@ require('lualine').setup {
       padding = 0,
     }},
     lualine_c = {
+        'filename',
         { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available }
     }
   }
