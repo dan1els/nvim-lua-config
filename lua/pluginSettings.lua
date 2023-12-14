@@ -66,11 +66,6 @@ require("telescope").load_extension("dap")
 
 require"fidget".setup{}
 
-vim.g["coq_settings"] = { 
-  auto_start = vim.v["true"],
-  -- display = { pum = { fast_close = vim.v["false"] } }
-}
-require'coq'
 
 
 require('toggleterm').setup()
@@ -111,3 +106,37 @@ bufferline.setup {
         },
     }
 }
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+  end,
+})
+
+require'luasnip'.setup()
+
+local cmp = require'cmp'
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'buffer' },
+  }),
+
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+})

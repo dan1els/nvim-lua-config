@@ -5,7 +5,6 @@ My personal config for neovim.
 # Plugins installed
 
  - [barbar.nvim](https://github.com/romgrk/barbar.nvim)
- - [coq_nvim](https://github.com/ms-jpq/coq_nvim)
  - [darcula-solid.nvim](https://github.com/briones-gabriel/darcula-solid.nvim)
  - [guess-indent.nvim](https://github.com/NMAC427/guess-indent.nvim)
  - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)

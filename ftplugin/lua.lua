@@ -1,10 +1,9 @@
-
 local lspconfig = require("lspconfig")
-local coq = require('coq')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig.lua_ls.setup {
-  capabilities = coq.lsp_ensure_capabilities(),
   autostart = true,
+  capabilities = capabilities,
 }
 
 vim.cmd("LspStart")

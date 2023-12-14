@@ -76,10 +76,6 @@ return require('packer').startup(function(use)
   use 'nicwest/vim-camelsnek' -- case change
 
   use {
-    'ms-jpq/coq_nvim',
-  }
-
-  use {
     'neovim/nvim-lspconfig',
   }
 
@@ -156,5 +152,20 @@ return require('packer').startup(function(use)
   use "sindrets/diffview.nvim"
   use "mhinz/vim-signify"
 
+  -- code completion
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
+  -- snippets
+  use({
+    "L3MON4D3/LuaSnip",
+    requires = { "rafamadriz/friendly-snippets" },
+    -- install jsregexp (optional!:).
+    run = "make install_jsregexp"
+  })
+  use 'saadparwaiz1/cmp_luasnip'
 end)
 

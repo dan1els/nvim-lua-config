@@ -88,8 +88,8 @@ config.on_attach = function(client, bufnr)
   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 end
 
-local coq = require "coq"
-config.capabilities = coq.lsp_ensure_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+config.capabilities = capabilities
 
 jdtls.start_or_attach(config)
 
