@@ -134,6 +134,7 @@ return require('packer').startup(function(use)
 
   -- jupyter
   use 'luk400/vim-jukit'
+  use 'goerz/jupytext.vim'
 
   use {
     "folke/which-key.nvim",
