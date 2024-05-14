@@ -91,13 +91,12 @@ return require('packer').startup(function(use)
 
   use {
     'eclipse/eclipse.jdt.ls', tag = 'v1.29.0',
-     run = 'mvn clean install -DskipTests=true'
+     run = './mvnw clean install -DskipTests=true'
   }
 
   -- jdtls extensions (fix java.lua when doing version up)
   use {
-    'microsoft/java-debug', tag = '0.49.0',
-     run = 'mvn clean install'
+    'microsoft/java-debug', run = './mvnw clean install -DskipTests'
   }
 
   use {
@@ -133,8 +132,7 @@ return require('packer').startup(function(use)
   use 'averms/black-nvim'
 
   -- jupyter
-  use 'luk400/vim-jukit'
-  use 'goerz/jupytext.vim'
+  -- use 'goerz/jupytext.vim'
 
   use {
     "folke/which-key.nvim",
@@ -160,6 +158,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'rcarriga/cmp-dap'
 
   -- snippets
   use({

@@ -1,6 +1,6 @@
 set number
 
-set encoding=utf-8
+set encoding=UTF-8
 
 set shortmess-=F
 

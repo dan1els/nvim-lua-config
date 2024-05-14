@@ -66,7 +66,7 @@ wk.register({
         H = { builtin.git_commits, "Commits"},
         h = { builtin.git_bcommits, "B Commits"},
         b = { builtin.git_branches, "Branches"},
-        i = { builtin.git_status, "Status"},
+        s = { builtin.git_status, "Status"},
         i = { builtin.git_stash, "Stash"},
     }}, {
         prefix = "<leader>",
@@ -79,7 +79,7 @@ wk.register({
         name = "Terminal",
         ["tb"] = {'<Cmd>ToggleTerm<CR>', "Toogle bottom"},
         ["tw"] = {'<Cmd>ToggleTerm direction=float<CR>', "Toggle float"},
-        ["tr"] = {'<Cmd>ToggleTerm direction=vertical size=80<CR>', "Toggle right"},
+        ["tr"] = {'<Cmd>ToggleTerm direction=vertical size=90<CR>', "Toggle right"},
         ["tt"] = {'<Cmd>ToggleTerm direction=tab<CR>', "Toggle tab"},
     }
 })

@@ -11,7 +11,7 @@ local workspace_folder = "/Users/evgenii/.jdtls_workspace/" .. vim.fn.fnamemodif
 -- collecting bundles
 -- java debug
 local bundles = {
-  plugins_install_path..'/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.49.0.jar',
+  plugins_install_path..'/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.51.0.jar',
 }
 -- vscode test
 vim.list_extend(bundles, vim.split(vim.fn.glob(plugins_install_path..'/vscode-java-test/server/*.jar', 1), "\n"))
@@ -22,7 +22,7 @@ local config = {
     allow_incremental_sync = true,
   };
   cmd = {
-    '/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/bin/java',
+    '/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -61,11 +61,11 @@ local config = {
         runtimes = {
           {
             name = "JavaSE-11",
-            path = "/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home",
+            path = "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home",
           },
           {
             name = "JavaSE-17",
-            path = "/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home",
+            path = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
           },
         }
       };
