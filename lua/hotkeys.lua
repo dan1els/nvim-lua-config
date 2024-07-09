@@ -134,32 +134,3 @@ wk.register({
     prefix = "<leader>",
     mode = "i",
 })
---jukit
-wk.register({
-    ["<cr>"] = {'<cmd>call jukit#send#line()<cr>', "Send line to repl"},
-    ["np"] = {'<cmd>call jukit#convert#notebook_convert(g:jukit_notebook_viewer)<cr>', 'Convert notebook'},
-    ["os"] = {'<cmd>call jukit#splits#output()<cr>', 'Open REPL'},
-    ["oS"] = {'<cmd>call jukit#splits#close_output_split()<cr>', 'Close REPL'},
-    -- cells
-    ["cd"] = {'<cmd>call jukit#cells#delete()<cr>', 'Delete cell'},
-    ["co"] = {'<cmd>call jukit#cells#create_below(0)<cr>', 'New code cell below'},
-    ["cO"] = {'<cmd>call jukit#cells#create_above(0)<cr>', 'New code cell above'},
-    ["ct"] = {'<cmd>call jukit#cells#create_below(1)<cr>', 'New text cell below'},
-    ["cT"] = {'<cmd>call jukit#cells#create_above(1)<cr>', 'New text cell above'},
-    ["<space>"] = {'<cmd>call jukit#send#section(0)<cr>', 'Send section'},
-    ["sb"] = {'<cmd>call jukit#send#until_current_section()<cr>', 'Send all before current'},
-    ["sa"] = {'<cmd>call jukit#send#all()<cr>', 'Send all'},
-    -- nav
-    ["j"] = {'<cmd>call jukit#cells#jump_to_next_cell()<cr>',  'Next cell'},
-    ["k"] = {'<cmd>call jukit#cells#jump_to_previous_cell()<cr>', 'Previous cell'},
-}, {
-    prefix = "<leader>",
-    noremap = true,
-    mode = "n",
-})
-wk.register({
-    ["<cr>"] = {'<esc><cmd>call jukit#send#selection()<cr>', 'Send selection'},
-}, {
-    prefix = "<leader>",
-    mode = "v",
-})

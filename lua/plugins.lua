@@ -168,5 +168,19 @@ return require('packer').startup(function(use)
     run = "make install_jsregexp"
   })
   use 'saadparwaiz1/cmp_luasnip'
+
+
+  -- kotlin
+  use({
+    "fwcd/kotlin-language-server",
+    run = "./gradlew :server:installDist"
+  })
+  
+  use({
+    "fwcd/kotlin-debug-adapter",
+    run = "./gradlew :adapter:installDist"
+  })
+
+
 end)
 
