@@ -32,8 +32,11 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     }
   }
+  
+  use "echasnovski/mini.icons"
 
   use "folke/neodev.nvim"
+  use { "nvim-neotest/nvim-nio" }
 
   -- use 'tanvirtin/monokai.nvim' -- theme monokai
  --  use 'doums/darcula' -- jetbrains like theme
@@ -100,7 +103,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'microsoft/vscode-java-test', tag = '0.38.1',
+    'microsoft/vscode-java-test', tag = '0.41.1',
     run = 'npm install && npm run build-plugin'
   }
 

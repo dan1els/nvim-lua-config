@@ -6,12 +6,14 @@ local jdtls = require('jdtls')
 local root_markers = {'gradlew', '.git'}
 local root_dir = require('jdtls.setup').find_root(root_markers)
 
-local workspace_folder = "/Users/evgenii/.jdtls_workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_folder = "/Users/ruaryec/.jdtls_workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+
+local java = vim.env.JAVA_HOME
 
 -- collecting bundles
 -- java debug
 local bundles = {
-  plugins_install_path..'/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.51.0.jar',
+  plugins_install_path..'/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.0.jar',
 }
 -- vscode test
 vim.list_extend(bundles, vim.split(vim.fn.glob(plugins_install_path..'/vscode-java-test/server/*.jar', 1), "\n"))
@@ -22,19 +24,19 @@ local config = {
     allow_incremental_sync = true,
   };
   cmd = {
-    '/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java',
+    java..'/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
     '-Xmx2g',
-    '-javaagent:/Users/evgenii/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar',
+    '-javaagent:/Users/ruaryec/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
    -- '-jar', jdtls_bin..'/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-    '-jar', jdtls_bin..'/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
+    '-jar', jdtls_bin..'/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar',
     '-configuration', jdtls_bin..'/config_mac',
     '-data', workspace_folder,
   },
@@ -56,18 +58,6 @@ local config = {
         useJava7Objects = true,
       },
       useBlocks = true,
-      };
-      configuration = {
-        runtimes = {
-          {
-            name = "JavaSE-11",
-            path = "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home",
-          },
-          {
-            name = "JavaSE-17",
-            path = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
-          },
-        }
       };
     };
   },

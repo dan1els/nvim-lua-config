@@ -33,7 +33,7 @@ require('guess-indent').setup {
 
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "java", "kotlin", "yaml", "json", "python" },
+  ensure_installed = { "c", "lua", "rust", "java", "kotlin", "yaml", "json", "python", "vimdoc" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
