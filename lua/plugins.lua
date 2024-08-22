@@ -26,6 +26,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  --use "github/copilot.vim"
+
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -93,7 +95,7 @@ return require('packer').startup(function(use)
   -- jdtls backend stuff
 
   use {
-    'eclipse/eclipse.jdt.ls', tag = 'v1.29.0',
+    'eclipse/eclipse.jdt.ls', tag = 'v1.38.0',
      run = './mvnw clean install -DskipTests=true'
   }
 
@@ -103,8 +105,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'microsoft/vscode-java-test', tag = '0.41.1',
-    run = 'npm install && npm run build-plugin'
+    'microsoft/vscode-java-test', run = 'npm install && npm run build-plugin'
   }
 
   use 'simonhicks/stacktrace.vim'
@@ -112,10 +113,6 @@ return require('packer').startup(function(use)
   use 'Yggdroot/indentLine'
 
   use 'mhartington/formatter.nvim'
-  use {
-    'google/google-java-format',
-     run = 'mvn clean install -DskipTests=true'
-  }
 
   use 'chaoren/vim-wordmotion' -- useful camelcase motion
 
@@ -184,6 +181,12 @@ return require('packer').startup(function(use)
     run = "./gradlew :adapter:installDist"
   })
 
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
+  use 'towolf/vim-helm'
 
 end)
 

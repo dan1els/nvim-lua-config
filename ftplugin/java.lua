@@ -84,19 +84,6 @@ config.capabilities = capabilities
 jdtls.start_or_attach(config)
 
 
---debug remote (move to the project settings)
-local dap = require('dap')
-dap.configurations.java = {
-  {
-    type = 'java';
-    request = 'attach';
-    name = "Debug (Attach) - Remote";
-    hostName = "127.0.0.1";
-    port = 5005;
-    timeout = 60000;
-  },
-}
-
 vim.g['test#custom_strategies'] = { 
   dapDebug = function() 
     require'dap'.continue()
@@ -105,23 +92,8 @@ vim.g['test#custom_strategies'] = {
 
 vim.api.nvim_create_user_command('DebugNearest', function()
   vim.g["test#java#gradletest#options"] = '--debug-jvm'
+  vim.g["test#java#maventest#options"] = '-Dmaven.surefire.debug'
   vim.cmd("TestNearest")
   vim.g["test#java#gradletest#options"] = ''
+  vim.g["test#java#maventest#options"] = ''
 end,{})
-
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/'
-require'formatter'.setup{
-  filetype = {
-    java = {
-      function()
-        return {
-          exe = 'java',
-          args = { '-jar', install_path .. 'google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar', '-a --skip-reflowing-long-strings', vim.api.nvim_buf_get_name(0) },
-          stdin = true
-        }
-      end
-    }
-  }
-}
-
-
