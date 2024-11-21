@@ -42,6 +42,18 @@ local config = {
   },
   settings = {
     java = {
+      configuration = {
+        runtimes = {
+          {
+            name = 'JavaSE-21',
+            path = '/Users/ruaryec/.asdf/installs/java/temurin-21.0.3+9.0.LTS',
+          },
+          {
+            name = 'JavaSE-11',
+            path = '/Users/ruaryec/.asdf/installs/java/adoptopenjdk-11.0.24+8',
+          },
+        },
+      },
       signatureHelp = { enabled = true };
       contentProvider = { preferred = 'fernflower' };
       sources = {

@@ -2,6 +2,7 @@ require("lspconfig").helm_ls.setup {
   settings = {
     ['helm-ls'] = {
       yamlls = {
+        enabled = false,
         path = "yaml-language-server",
       }
     }
@@ -9,6 +10,7 @@ require("lspconfig").helm_ls.setup {
 }
 require("lspconfig").yamlls.setup{
   filetypes = { 'yml', "yaml", "yaml.docker-compose", "yaml.gitlab" },
+  filetypes_exclude = { "helm" },
   cmd = { "yaml-language-server", "--stdio" },
   settings = {
     yaml = {

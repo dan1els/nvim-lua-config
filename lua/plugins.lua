@@ -77,6 +77,8 @@ return require('packer').startup(function(use)
 
   use 'nvim-telescope/telescope-ui-select.nvim'
   use 'nvim-telescope/telescope-dap.nvim'
+  use 'dawsers/telescope-file-history.nvim'
+
 
   use 'nicwest/vim-camelsnek' -- case change
 
@@ -187,6 +189,32 @@ return require('packer').startup(function(use)
   })
 
   use 'towolf/vim-helm'
+
+  use {
+    "supermaven-inc/supermaven-nvim",
+  }
+
+  use {
+    "harrisoncramer/gitlab.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "stevearc/dressing.nvim", -- Recommended but not required. Better UI for pickers.
+      "nvim-tree/nvim-web-devicons", -- Recommended but not required. Icons in discussion tree.
+    },
+    build = function()
+      require("gitlab.server").build()
+    end,
+    branch = "develop",
+    config = function()
+      require("diffview") -- We require some global state from diffview
+      local gitlab = require("gitlab")
+      gitlab.setup()
+    end,
+  }
+
+  use 'stefandtw/quickfix-reflector.vim'
 
 end)
 

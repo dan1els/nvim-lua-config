@@ -73,6 +73,20 @@ wk.register({
         mode = "n",
     })
 
+-- Telescope history
+wk.register({
+    h = {
+        name = "Telescope history",
+        b = { '<cmd>Telescope file_history backup<cr>', "Backup file"},
+        h = { '<cmd>Telescope file_history history<cr>', "File history"},
+        l = { '<cmd>Telescope file_history log<cr>', "File history log"},
+        f = { '<cmd>Telescope file_history files<cr>', "Files"},
+        q = { '<cmd>Telescope file_history query<cr>', "Query"},
+    }}, {
+        prefix = "<leader>",
+        mode = "n",
+    })
+
 -- Toggleterm
 wk.register({
     t = {
@@ -84,22 +98,6 @@ wk.register({
     }
 })
 
--- ChatGpt
-wk.register({
-    p = {
-        name = "ChatGPT",
-        e = {
-            function()
-                local chatgpt = require("chatgpt")
-                chatgpt.edit_with_instructions()
-            end,
-            "Edit with instructions",
-        },
-    },
-}, {
-    prefix = "<leader>",
-    mode = "v",
-})
 -- LSP
 wk.register({
     ['<space>'] = {
@@ -119,18 +117,4 @@ wk.register({
 -- Formatter
 wk.register({
     ["<S-f>"] = {'<cmd>Format<cr>', 'format'}
-})
-
--- WordMotion
-wk.register({
-   ["<S-Left>"] = {'<C-o><Plug>WordMotion_b', "Word prev"}
-  }, {
-    prefix = "<leader>",
-    mode = "i",
-})
-wk.register({
-    ["<S-Right>"] = {'<C-o><Plug>WordMotion_w', "Word next"}
-  }, {
-    prefix = "<leader>",
-    mode = "i",
 })

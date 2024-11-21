@@ -128,6 +128,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = "supermaven" },
   }, {
     { name = 'buffer' },
   }),
@@ -153,3 +154,14 @@ require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
     { name = "dap" },
   },
 })
+
+require("supermaven-nvim").setup({})
+
+require('file_history').setup {
+  -- This is the location where it will create your file history repository
+  backup_dir = "~/.file-history-git",
+  -- command line to execute git
+  git_cmd = "git"
+}
+require('telescope').load_extension('file_history')
+
