@@ -218,5 +218,18 @@ return require('packer').startup(function(use)
 
   use 'stefandtw/quickfix-reflector.vim'
 
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  }
+
+--  use 'rcasia/neotest-java'
+  use 'weilbith/neotest-gradle'
+
 end)
 

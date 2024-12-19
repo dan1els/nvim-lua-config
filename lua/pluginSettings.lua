@@ -166,3 +166,8 @@ require('file_history').setup {
 }
 require('telescope').load_extension('file_history')
 
+require("neotest").setup({
+  adapters = {
+    require('neotest-gradle')
+  },
+})

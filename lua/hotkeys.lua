@@ -95,10 +95,27 @@ wk.register({
         ["tw"] = {'<Cmd>ToggleTerm direction=float<CR>', "Toggle float"},
         ["tr"] = {'<Cmd>ToggleTerm direction=vertical size=90<CR>', "Toggle right"},
         ["tt"] = {'<Cmd>ToggleTerm direction=tab<CR>', "Toggle tab"},
+    }, {
+        prefix = "<leader>",
+        mode = "n",
     }
 })
 
 -- LSP
+wk.register({
+    t = {
+        name = "neotest",
+        r = { '<cmd>lua require("neotest").run.run()<cr>', "Run tests" },
+        R = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', "Run tests in file" },
+        d = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', "Debug test" },
+        s = { '<cmd>lua require("neotest").run.stop()<cr>', "Stop test" },
+        o = { '<cmd>lua require("neotest").output.open()<cr>', "Open output" },
+        O = { '<cmd>lua require("neotest").summary.toggle()<cr>', "Toggle summary" },
+        P = { '<cmd>lua require("neotest").output_panel.toggle()<cr>', "Toggle output panel" },
+    }
+})
+
+-- neotest
 wk.register({
     ['<space>'] = {
         name = 'language/lsp',
