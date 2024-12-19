@@ -54,9 +54,10 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- statusbar
-require('lualine').setup()
 require('lualineColors')
 
+-- lsp
+require('lsp.kotlin')
 
 -- search
 require('telescope').setup()

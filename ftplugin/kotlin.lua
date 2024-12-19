@@ -1,14 +1,6 @@
 local fn = vim.fn
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local util = require("lspconfig.util")
 
-
-
-require'lspconfig'.kotlin_language_server.setup{
-  autostart = true,
-  capabilities = capabilities,
-  cmd = {fn.stdpath('data')..'/site/pack/packer/start/kotlin-language-server/server/build/install/server/bin/kotlin-language-server'}
-}
 
 local function resolve_classname()
   --[[ if (vim.bo.filetype ~= "kotlin") then
@@ -75,4 +67,20 @@ dap.configurations.kotlin = {
     mainClass = function() resolve_classname() end,
   },
 }
+
+vim.api.nvim_create_user_command('DebugNearest', function()
+  vim.g["test#java#gradletest#options"] = '--debug-jvm'
+  vim.g["test#java#maventest#options"] = '-Dmaven.surefire.debug'
+  vim.cmd("TestNearest")
+  vim.g["test#java#gradletest#options"] = ''
+  vim.g["test#java#maventest#options"] = ''
+end,{})
+
+vim.api.nvim_create_user_command('DebugFile', function()
+  vim.g["test#java#gradletest#options"] = '--debug-jvm'
+  vim.g["test#java#maventest#options"] = '-Dmaven.surefire.debug'
+  vim.cmd("TestFile")
+  vim.g["test#java#gradletest#options"] = ''
+  vim.g["test#java#maventest#options"] = ''
+end,{})
 vim.cmd("LspStart")

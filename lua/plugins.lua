@@ -70,6 +70,8 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  use 'archibate/lualine-time'
+
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.3',
     requires = { {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'} }
