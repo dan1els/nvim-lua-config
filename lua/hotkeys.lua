@@ -87,6 +87,14 @@ wk.register({
         mode = "n",
     })
 
+-- Telescope project
+wk.register({
+    P = { '<cmd>Telescope projects<cr>', "Projects"},
+    }, {
+        prefix = "<leader>",
+        mode = "n",
+    })
+
 -- Toggleterm
 wk.register({
     t = {

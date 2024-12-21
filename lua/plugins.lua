@@ -231,5 +231,8 @@ return require('packer').startup(function(use)
 --  use 'rcasia/neotest-java'
   use 'weilbith/neotest-gradle'
 
+  use {
+    "ahmedkhalf/project.nvim",
+  }
 end)
 
