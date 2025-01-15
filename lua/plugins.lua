@@ -176,7 +176,7 @@ return require('packer').startup(function(use)
 
   -- kotlin
   use({
-    "fwcd/kotlin-language-server",
+    "kotlin-community-tools/kotlin-language-server",
     run = "./gradlew :server:installDist"
   })
   

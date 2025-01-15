@@ -79,14 +79,6 @@ local config = {
 }
 
 config.on_attach = function(client, bufnr)
-  jdtls.setup.add_commands()
-  local opts = { silent = true, buffer = bufnr }
-  vim.keymap.set('n', "<A-o>", jdtls.organize_imports, opts)
-  vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
-  vim.keymap.set('n', "<leader>dd", jdtls.test_nearest_method, opts)
-  vim.keymap.set('n', "xv", jdtls.extract_variable, opts)
-  vim.keymap.set('v', 'xm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
-  vim.keymap.set('n', "xc", jdtls.extract_constant, opts)
   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 end
 

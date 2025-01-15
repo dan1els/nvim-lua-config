@@ -127,8 +127,8 @@ wk.register({
 wk.register({
     ['<space>'] = {
         name = 'language/lsp',
-        r    = { '<cmd>Telescope lsp_references<cr>', 'references' },
-        rn    = { vim.lsp.buf.rename, 'rename' },
+        R    = { '<cmd>Telescope lsp_references<cr>', 'references' },
+        r    = { vim.lsp.buf.rename, 'rename' },
         D    = { vim.lsp.buf.type_definition, 'type definition' },
         a    = { vim.lsp.buf.code_action, 'code action' },
         e    = { vim.diagnostic.open_float, 'diagnostics' },
