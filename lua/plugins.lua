@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     }
   }
-  
+
   use "echasnovski/mini.icons"
 
   use "folke/neodev.nvim"
@@ -143,7 +143,7 @@ return require('packer').startup(function(use)
       }
       end
   }
-  
+
   -- git
   use "sindrets/diffview.nvim"
   use "mhinz/vim-signify"
