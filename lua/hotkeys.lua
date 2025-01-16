@@ -4,142 +4,109 @@ vim.g["lsc_auto_map"] = vim.v["true"]
 local wk = require("which-key")
 
 -- tree
-wk.register({
-    t = {
-        name = "Tree",
-        t = {"<cmd>NvimTreeFocus<cr>", "Focus"},
-        T = {"<cmd>NvimTreeToggle<cr>", "Toggle"},
-        f = {"<cmd>NvimTreeFindFile<cr>", "Find file"},
-        F = {"<cmd>NvimTreeFindFileToggle<cr>", "Find file toggle"},
-    }
-}, {
-    prefix = "<leader>",
-    mode = "n",
+wk.add({
+    { "<leader>t", group = "Tree" },
+    { "<leader>tF", "<cmd>NvimTreeFindFileToggle<cr>", desc = "Find file toggle" },
+    { "<leader>tT", "<cmd>NvimTreeToggle<cr>", desc = "Toggle" },
+    { "<leader>tf", "<cmd>NvimTreeFindFile<cr>", desc = "Find file" },
+    { "<leader>tt", "<cmd>NvimTreeFocus<cr>", desc = "Focus" },
 })
+
 -- buffers
-wk.register({
-    ["<Tab>"] = { "<Cmd>BufferLineCycleNext<CR>", "Next tab" },
-    ["<S-Tab>"] = { "<Cmd>BufferLineCyclePrev<CR>", "Prev tab" },
-    ["<S-W>"] = { "<Cmd>BufferLineCloseOthers<CR>", "Close all other tabs" },
+wk.add({
+    { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+    { "<S-W>", "<Cmd>BufferLineCloseOthers<CR>", desc = "Close all other tabs" },
+    { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
 })
 -- ttagbar
-wk.register({
-    ["<S-M>"] = { "<Cmd>TagbarToggle<CR>", "Tagbar" },
+wk.add({
+    { "<S-M>", "<Cmd>TagbarToggle<CR>", desc = "Tagbar" },
 })
 
 local builtin = require('telescope.builtin')
 -- Telescope files
-wk.register({
-    f = {
-        name = "Telescope files",
-        f = { builtin.find_files, "Find files"},
-        g = { builtin.live_grep, "Live grep"},
-        b = { builtin.buffers, "Buffers"},
-        H = { builtin.help_tags, "Help tags"},
-        w = { builtin.grep_string, "Grep string"},
-        h = { builtin.search_history, "Search history"},
-        q = { 
-            ["<space>"] = { builtin.quickfix, "Quickfix" },
-            h = { builtin.quickfixhistory, "Quickfix history"},
-        },
-    }}, {
-        prefix = "<leader>",
-        mode = "n",
-    })
+wk.add({
+    { "<leader>f", group = "Telescope files" },
+    { "<leader>fH", builtin.help_tags, desc = "Help tags" },
+    { "<leader>fb", builtin.buffers, desc = "Buffers" },
+    { "<leader>ff", builtin.find_files, desc = "Find files" },
+    { "<leader>fg", builtin.live_grep, desc = "Live grep" },
+    { "<leader>fh", builtin.search_history, desc = "Search history" },
+    { "<leader>fq<space>", builtin.quickfix, desc = "Quickfix" },
+    { "<leader>fqh", builtin.quickfixhistory, desc = "Quickfix history" },
+    { "<leader>fw", builtin.grep_string, desc = "Grep string" },
+})
 
 -- Telescope LSP
-wk.register({
-    l = {
-        name = "Telescope LSP",
-        r = { builtin.lsp_references, "References"},
-        w = { builtin.lsp_dynamic_workspace_symbols, "Workspace symbols"},
-        d = { builtin.lsp_document_symbols, "Document symbols"},
-        f = { builtin.diagnostics, "Diagnostics"},
-    }}, {
-        prefix = "<leader>",
-        mode = "n",
-    })
+wk.add({
+    { "<leader>l", group = "Telescope LSP" },
+    { "<leader>ld", builtin.lsp_document_symbols, desc = "Document symbols" },
+    { "<leader>lf", builtin.diagnostics, desc = "Diagnostics" },
+    { "<leader>lr", builtin.lsp_references, desc = "References" },
+    { "<leader>lw", builtin.lsp_dynamic_workspace_symbols, desc = "Workspace symbols" },
+})
 -- Telescope git
-wk.register({
-    g = {
-        name = "Telescope git",
-        H = { builtin.git_commits, "Commits"},
-        h = { builtin.git_bcommits, "B Commits"},
-        b = { builtin.git_branches, "Branches"},
-        s = { builtin.git_status, "Status"},
-        i = { builtin.git_stash, "Stash"},
-    }}, {
-        prefix = "<leader>",
-        mode = "n",
-    })
+wk.add({
+    { "<leader>g", group = "Telescope git" },
+    { "<leader>gH", builtin.git_commits, desc = "Commits" },
+    { "<leader>gb", builtin.git_branches, desc = "Branches" },
+    { "<leader>gh", builtin.git_bcommits, desc = "B Commits" },
+    { "<leader>gi", builtin.git_stash, desc = "Stash" },
+    { "<leader>gs", builtin.git_status, desc = "Status" },
+})
 
 -- Telescope history
-wk.register({
-    h = {
-        name = "Telescope history",
-        b = { '<cmd>Telescope file_history backup<cr>', "Backup file"},
-        h = { '<cmd>Telescope file_history history<cr>', "File history"},
-        l = { '<cmd>Telescope file_history log<cr>', "File history log"},
-        f = { '<cmd>Telescope file_history files<cr>', "Files"},
-        q = { '<cmd>Telescope file_history query<cr>', "Query"},
-    }}, {
-        prefix = "<leader>",
-        mode = "n",
-    })
+wk.add({
+    { "<leader>h", group = "Telescope history" },
+    { "<leader>hb", "<cmd>Telescope file_history backup<cr>", desc = "Backup file" },
+    { "<leader>hf", "<cmd>Telescope file_history files<cr>", desc = "Files" },
+    { "<leader>hh", "<cmd>Telescope file_history history<cr>", desc = "File history" },
+    { "<leader>hl", "<cmd>Telescope file_history log<cr>", desc = "File history log" },
+    { "<leader>hq", "<cmd>Telescope file_history query<cr>", desc = "Query" },
+})
 
 -- Telescope project
-wk.register({
-    P = { '<cmd>Telescope projects<cr>', "Projects"},
-    }, {
-        prefix = "<leader>",
-        mode = "n",
-    })
+wk.add({
+    { "<leader>P", "<cmd>Telescope projects<cr>", desc = "Projects" },
+})
 
 -- Toggleterm
-wk.register({
-    t = {
-        name = "Terminal",
-        ["tb"] = {'<Cmd>ToggleTerm<CR>', "Toogle bottom"},
-        ["tw"] = {'<Cmd>ToggleTerm direction=float<CR>', "Toggle float"},
-        ["tr"] = {'<Cmd>ToggleTerm direction=vertical size=90<CR>', "Toggle right"},
-        ["tt"] = {'<Cmd>ToggleTerm direction=tab<CR>', "Toggle tab"},
-    }, {
-        prefix = "<leader>",
-        mode = "n",
-    }
+wk.add({
+    { "t", group = "Terminal" },
+    { "ttb", "<Cmd>ToggleTerm<CR>", desc = "Toogle bottom" },
+    { "ttr", "<Cmd>ToggleTerm direction=vertical size=90<CR>", desc = "Toggle right" },
+    { "ttt", "<Cmd>ToggleTerm direction=tab<CR>", desc = "Toggle tab" },
+    { "ttw", "<Cmd>ToggleTerm direction=float<CR>", desc = "Toggle float" },
 })
 
 -- LSP
-wk.register({
-    t = {
-        name = "neotest",
-        r = { '<cmd>lua require("neotest").run.run()<cr>', "Run tests" },
-        R = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', "Run tests in file" },
-        d = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', "Debug test" },
-        s = { '<cmd>lua require("neotest").run.stop()<cr>', "Stop test" },
-        o = { '<cmd>lua require("neotest").output.open()<cr>', "Open output" },
-        O = { '<cmd>lua require("neotest").summary.toggle()<cr>', "Toggle summary" },
-        P = { '<cmd>lua require("neotest").output_panel.toggle()<cr>', "Toggle output panel" },
-    }
+wk.add({
+    { "t", group = "neotest" },
+    { "tO", '<cmd>lua require("neotest").summary.toggle()<cr>', desc = "Toggle summary" },
+    { "tP", '<cmd>lua require("neotest").output_panel.toggle()<cr>', desc = "Toggle output panel" },
+    { "tR", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc = "Run tests in file" },
+    { "td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', desc = "Debug test" },
+    { "to", '<cmd>lua require("neotest").output.open()<cr>', desc = "Open output" },
+    { "tr", '<cmd>lua require("neotest").run.run()<cr>', desc = "Run tests" },
+    { "ts", '<cmd>lua require("neotest").run.stop()<cr>', desc = "Stop test" },
 })
 
 -- neotest
-wk.register({
-    ['<space>'] = {
-        name = 'language/lsp',
-        R    = { '<cmd>Telescope lsp_references<cr>', 'references' },
-        r    = { vim.lsp.buf.rename, 'rename' },
-        D    = { vim.lsp.buf.type_definition, 'type definition' },
-        a    = { vim.lsp.buf.code_action, 'code action' },
-        e    = { vim.diagnostic.open_float, 'diagnostics' },
-        i    = { vim.lsp.buf.implementation, 'implementation' },
-        s    = { vim.lsp.buf.signature_help, 'signature help' },
-        ['<space>'] = { vim.diagnostic.goto_next, 'next issue' },
-        ['<bs>'] = { vim.diagnostic.goto_prev, 'prev issue' },
-    }
+wk.add({
+    { "<space>", group = "language/lsp" },
+    { "<space><bs>", vim.diagnostic.goto_prev, desc = "prev issue" },
+    { "<space><space>", vim.diagnostic.goto_next, desc = "next issue" },
+    { "<space>D", vim.lsp.buf.type_definition, desc = "type definition" },
+    { "<space>R", "<cmd>Telescope lsp_references<cr>", desc = "references" },
+    { "<space>a", vim.lsp.buf.code_action, desc = "code action" },
+    { "<space>e", vim.diagnostic.open_float, desc = "diagnostics" },
+    { "<space>i", vim.lsp.buf.implementation, desc = "implementation" },
+    { "<space>r", vim.lsp.buf.rename, desc = "rename" },
+    { "<space>s", vim.lsp.buf.signature_help, desc = "signature help" },
 })
 
 -- Formatter
-wk.register({
-    ["<S-f>"] = {'<cmd>Format<cr>', 'format'}
+wk.add({
+    { "<S-f>", "<cmd>Format<cr>", desc = "format" },
 })
+
