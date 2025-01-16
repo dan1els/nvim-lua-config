@@ -18,10 +18,6 @@ wk.add({
     { "<S-W>", "<Cmd>BufferLineCloseOthers<CR>", desc = "Close all other tabs" },
     { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
 })
--- ttagbar
-wk.add({
-    { "<S-M>", "<Cmd>TagbarToggle<CR>", desc = "Tagbar" },
-})
 
 local builtin = require('telescope.builtin')
 -- Telescope files
@@ -109,4 +105,3 @@ wk.add({
 wk.add({
     { "<S-f>", "<cmd>Format<cr>", desc = "format" },
 })
-

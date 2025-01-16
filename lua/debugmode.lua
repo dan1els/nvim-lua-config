@@ -81,4 +81,3 @@ debugmode:map("n", "F", function() require'telescope'.extensions.dap.frames{} en
 debugmode:map("n", "<leader>dm", function()  vim.g.libmodalActiveLayerName = nil debugmode:exit() end, {})
 
 vim.keymap.set("n", "<leader>dm", function() debugmode:enter() vim.g.libmodalActiveLayerName = 'DEBUG' end, {})
-

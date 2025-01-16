@@ -5,5 +5,3 @@ lspconfig.lua_ls.setup {
   autostart = true,
   capabilities = capabilities,
 }
-
-vim.cmd("LspStart")

@@ -131,13 +131,6 @@ return require('packer').startup(function(use)
 
   use 'MunifTanjim/nui.nvim'
 
-  use "linux-cultist/venv-selector.nvim"
-
-  use 'averms/black-nvim'
-
-  -- jupyter
-  -- use 'goerz/jupytext.vim'
-
   use {
     "folke/which-key.nvim",
     config = function()
@@ -179,7 +172,7 @@ return require('packer').startup(function(use)
     "kotlin-community-tools/kotlin-language-server",
     run = "./gradlew :server:installDist"
   })
-  
+
   use({
     "fwcd/kotlin-debug-adapter",
     run = "./gradlew :adapter:installDist"
@@ -194,26 +187,6 @@ return require('packer').startup(function(use)
 
   use {
     "supermaven-inc/supermaven-nvim",
-  }
-
-  use {
-    "harrisoncramer/gitlab.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "stevearc/dressing.nvim", -- Recommended but not required. Better UI for pickers.
-      "nvim-tree/nvim-web-devicons", -- Recommended but not required. Icons in discussion tree.
-    },
-    build = function()
-      require("gitlab.server").build()
-    end,
-    branch = "develop",
-    config = function()
-      require("diffview") -- We require some global state from diffview
-      local gitlab = require("gitlab")
-      gitlab.setup()
-    end,
   }
 
   use 'stefandtw/quickfix-reflector.vim'

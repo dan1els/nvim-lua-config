@@ -61,7 +61,10 @@ require('lualineColors')
 
 -- lsp
 require('lsp.kotlin')
+require('lsp.lua')
 require('lsp.luasnip')
+require('lsp.python')
+require('lsp.yaml')
 
 -- search
 require('telescope').setup()
@@ -135,7 +138,6 @@ cmp.setup({
   }, {
     { name = 'buffer' },
   }),
-
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
