@@ -1,4 +1,6 @@
-require('plugins')
+vim.g.lazy_plugin_path = '/Users/ruaryec/Developer/.lazy'
+
+require('lazyinit')
 require('pluginSettings')
 require('hotkeys')
 require('colorScheme')

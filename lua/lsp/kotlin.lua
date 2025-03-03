@@ -57,7 +57,7 @@ local dap = require('dap')
 
 dap.adapters.kotlin = {
     type = 'executable';
-    command = fn.stdpath('data')..'/site/pack/packer/start/kotlin-debug-adapter/adapter/build/install/adapter/bin/kotlin-debug-adapter';
+    command = vim.g.lazy_plugin_path..'/kotlin-debug-adapter/adapter/build/install/adapter/bin/kotlin-debug-adapter';
 }
 
 dap.configurations.kotlin = {
@@ -77,7 +77,7 @@ require'lspconfig'.kotlin_language_server.setup{
   autostart = true,
   capabilities = capabilities,
   root_dir = root_dir,
-  cmd = {fn.stdpath('data')..'/site/pack/packer/start/kotlin-language-server/server/build/install/server/bin/kotlin-language-server'},
+  cmd = {vim.g.lazy_plugin_path..'/kotlin-language-server/server/build/install/server/bin/kotlin-language-server'},
   init_options = {
     -- Enables caching and use project root to store cache data.
     storagePath = util.root_pattern(unpack(root_files))(vim.fn.expand '%:p:h'),

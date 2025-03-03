@@ -2,3 +2,4 @@ plugin/
 node_modules/
 package-lock.json
 package.json
+lazy-lock.json

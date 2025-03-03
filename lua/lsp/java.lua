@@ -1,11 +1,11 @@
 local fn = vim.fn
-local plugins_install_path = fn.stdpath('data')..'/site/pack/packer/start'
+local plugins_install_path = vim.g.lazy_plugin_path
 local jdtls_bin = plugins_install_path..'/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository'
 
 local root_markers = {'gradlew', '.git'}
 local root_dir = require('jdtls.setup').find_root(root_markers)
 
-local workspace_folder = "/Users/ruaryec/.jdtls_workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_folder = "/Users/ruaryec/Developer/.jdtls_workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 local java = vim.env.JAVA_HOME
 
