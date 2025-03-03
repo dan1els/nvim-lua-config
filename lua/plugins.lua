@@ -2,7 +2,7 @@ return {
 
   {
     "vhyrro/luarocks.nvim",
-    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    priority = 1000, -- Very high priority is required, luarocks.nvim should build as the first plugin in your config.
     config = true,
   },
 
@@ -37,7 +37,7 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    build = ':TSUpdate'
   },
 
   'nvim-treesitter/nvim-treesitter-context',
@@ -78,16 +78,16 @@ return {
 
   {
     'eclipse/eclipse.jdt.ls', tag = 'v1.38.0',
-     run = './mvnw clean install -DskipTests=true'
+     build = './mvnw clean install -DskipTests=true'
   },
 
   -- jdtls extensions (fix java.lua when doing version up)
   {
-    'microsoft/java-debug', run = './mvnw clean install -DskipTests'
+    'microsoft/java-debug', build = './mvnw clean install -DskipTests'
   },
 
   {
-    'microsoft/vscode-java-test', run = 'npm install && npm run build-plugin'
+    'microsoft/vscode-java-test', build = 'npm install && npm build build-plugin'
   },
 
   'simonhicks/stacktrace.vim',
@@ -140,7 +140,7 @@ return {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
     -- install jsregexp (optional!:).
-    run = "make install_jsregexp"
+    build = "make install_jsregexp"
    },
 
   'saadparwaiz1/cmp_luasnip',
@@ -148,18 +148,19 @@ return {
 
   -- kotlin
   {
-    "kotlin-community-tools/kotlin-language-server",
-    run = "./gradlew :server:installDist"
+    "dan1els/kotlin-language-server",
+    branch = "feature/java-21",
+    build = "./gradlew :server:installDist"
   },
 
   {
     "fwcd/kotlin-debug-adapter",
-    run = "./gradlew :adapter:installDist"
+    build = "./gradlew :adapter:installDist"
   },
 
   {
     "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+    build = function() vim.fn["mkdp#util#install"]() end,
   },
 
   'towolf/vim-helm',
