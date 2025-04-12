@@ -1,4 +1,4 @@
-vim.g.lazy_plugin_path = '/Users/ruaryec/Developer/.lazy'
+vim.g.lazy_plugin_path = vim.fn.stdpath("data").."/lazy"
 
 require('lazyinit')
 require('pluginSettings')

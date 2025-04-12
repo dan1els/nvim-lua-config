@@ -133,7 +133,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = "supermaven" },
   }, {
     { name = 'buffer' },
   }),
@@ -159,7 +158,6 @@ require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
   },
 })
 
-require("supermaven-nvim").setup({})
 
 require('file_history').setup {
   -- This is the location where it will create your file history repository

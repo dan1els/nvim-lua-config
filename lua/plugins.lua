@@ -77,7 +77,7 @@ return {
   -- jdtls backend stuff
 
   {
-    'eclipse/eclipse.jdt.ls', tag = 'v1.38.0',
+    'eclipse/eclipse.jdt.ls', tag = 'v1.46.1',
      build = './mvnw clean install -DskipTests=true'
   },
 
@@ -164,10 +164,6 @@ return {
   },
 
   'towolf/vim-helm',
-
-  {
-    "supermaven-inc/supermaven-nvim",
-  },
 
   'stefandtw/quickfix-reflector.vim',
 
